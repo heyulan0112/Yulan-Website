@@ -1,0 +1,260 @@
+html{
+  scroll-behavior: smooth;
+}
+body{
+  background-color: white;
+  margin: 0;
+}
+p{
+  text-align: center;
+  font-family: serif;
+  font-size: 20px;
+  margin: 0;
+  color: #ADC2A9;
+}
+hr{
+  border-style: None;
+  border-top-style: dotted;
+  border-color: #ECE5C7;
+  border-width: 8px;
+  height: 0;
+  width: 20%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+}
+
+.first-img{
+  display: inline;
+  position: relative;
+  z-index: -1;
+  animation:fadenum 2s;
+  overflow: hidden;
+  height: 50%;
+  /* filter: blur(2px); */
+}
+
+.background-img{
+  height: 400px;
+  width: 100%;
+  animation:fadenum 2s;
+}
+
+.sub-start-text{
+  display: inline;
+  position: absolute;
+  z-index: 1;
+  font-family: 'Abril Fatface', cursive;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  top: 165px;
+  left:625px;
+}
+
+.start-text{
+  display: inline;
+  position: absolute;
+  z-index: 1;
+  font-family: 'Berkshire Swash', cursive;
+  font-weight: bold;
+  font-size: 45px;
+  color: white;
+  top: 200px;
+  left:550px;
+  text-align: center;
+}
+
+.menu{
+  display: inline;
+  position: absolute;
+  z-index: 1;
+  top:0;
+  left:0;
+  right:0;
+  background-color: black;
+  height: 50px;
+  opacity: 0.9;
+  position: fixed;
+  animation:menu-fadenum 0.8s;
+}
+
+@keyframes menu-fadenum {
+  0%{height: 0px;}
+  100%{height: 50px;}
+}
+
+@keyframes fadenum{
+   0%{opacity: 0.5;}
+   100%{opacity: 1;}
+}
+
+.m-text{
+  display: inline;
+  position: relative;
+  z-index: 1;
+  left:1170px;
+  top: 3px;
+}
+
+.menu-text{
+  display: inline-block;
+  position: relative;
+  font-family: serif;
+  font-size: 16px;
+  color: #ECE5C7;
+  margin-top: 0;
+  padding: 10px 17px;
+  padding-top: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.menu-text:hover{
+  color: #FFE3A9;
+  opacity: 1;
+  font-size: 18px;
+  text-shadow: 5px 5px 15px white;
+}
+
+.company-name{
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  font-family: 'Berkshire Swash', cursive;
+  font-weight: bolder;
+  font-size: 20px;
+  margin-top: 12px;
+  margin-left: 25px;
+  color: #ECE5C7;
+  left:10px;
+  text-decoration: none;
+  transition: 0.5s;
+  padding-bottom: 10px;
+}
+
+.company-name:hover{
+  color: #FFE3A9;
+  opacity: 1;
+  font-size: 21px;
+  transition: 0.5s;
+  text-shadow: 5px 5px 15px white;
+}
+
+.learn-more-btn{
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  font-family: serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #99A799;
+  background-color: #E9E9E5;
+  opacity: 0.8;
+  border-radius: 8px;
+  border: None;
+  height: 50px;
+  width: 130px;
+  top: 330px;
+  left:660px;
+}
+
+.learn-more-btn:hover{
+  color: #ECE5C7;
+  opacity: 1;
+  border: 2px solid 423F3E;
+  background-color: #423F3E;
+  transition: 0.3s;
+}
+
+.back-text{
+  font-size: 20px;
+  font-family: serif;
+  color: #ECE5C7;
+  margin-top: 12px;
+}
+
+.topb:hover{
+  position: fixed;
+  bottom: 30px;
+  right:30px;
+  background-color: black;
+  opacity: 0.8;
+  border-radius: 40px;
+  height: 70px;
+  width: 70px;
+  transition: 0.3s;
+  border: 2px solid black;
+}
+
+.topb{
+  position: fixed;
+  bottom: 30px;
+  right:30px;
+  background-color: #CDC2AE;
+  opacity: 0.8;
+  border-radius: 40px;
+  height: 70px;
+  width: 70px;
+}
+
+.rent-flow{
+  margin-top: 90px;
+  margin-left: 100px;
+  margin-right: 100px;
+  animation:fadenum 4s;
+}
+
+.second-block-title{
+  text-align: center;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 25px;
+  margin: 0;
+  margin-bottom: 50px;
+  color: #99A799;
+}
+
+.second-block-title:hover{
+  font-size: 27px;
+  color: #52575D;
+  transition: 0.5s;
+}
+
+.qa-title{
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 50px;
+  color: #99A799;
+}
+
+.qa-title:hover{
+  font-size: 22px;
+  color: #52575D;
+  transition: 0.5s;
+}
+
+.end-hr{
+  border-color: #ECE5C7;
+  border-width: 4px;
+  border-top-style: groove;
+  height: 0;
+  width: 20%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.copy-right{
+  padding: 20px,0;
+  height: 80px;
+  margin-bottom: 0;
+  background-color:#ECE5C7;
+}
+.right-text{
+  padding-top: 30px;
+  margin-bottom: 0;
+  color: #CABFAB;
+  font-size: 18px;
+  font-family: 'Abril Fatface', cursive;
+}

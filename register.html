@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to register page</title>
+    <link rel="stylesheet" href="css/register_styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Marcellus+SC&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="head" class="menu">
+      <a class="company-name" href="homepage.html">Jas Car</a>
+      <div class="m-text">
+        <a class="menu-text" href="about.html">About</a>
+        <a class="menu-text" href="explore.html">Explore</a>
+        <a class="menu-text" href="login.html">Sign in</a>
+      </div>
+    </div>
+
+    <div class="start-text">
+      <p class="welcome-title">Welcome to Join Us</p>
+    </div>
+    <hr>
+    <div class="information-grid">
+      <br>
+      <br>
+      <br>
+      <form action="/register.html" method="post">
+        <div class="input-grid">
+          <p class="inputbox">User Name*</p>
+          <input class="input" type="text" name="username" value="">
+        </div>
+        <div class="input-grid">
+          <p class="inputbox">Password*</p>
+          <input id="password-box1"  class="input" type="text" name="password" value="">
+        </div>
+        <div class="input-grid">
+          <p class="inputbox">Password Confirmation*</p>
+          <input id="password-box2" class="input" type="text" name="passwordconfirm" value="">
+        </div>
+
+        <div class="input-grid">
+          <p class="inputbox">Email*</p>
+          <input id="email" class="input" type="text" name="email" value="">
+        </div>
+
+        <div class="input-grid">
+          <p class="inputbox">Phone Number*</p>
+          <input id="phonenumber" class="input" type="text" name="phonenumber" value="">
+        </div>
+
+        <label class="check">
+          <input id="checkid" class="checkboxx" onclick="mycheckbox()" type="checkbox" name="">
+          Is Cooperate Customer?
+        </label>
+
+        <div class="input-grid">
+          <p class="inputbox">First Name*</p>
+          <input id="firstname" class="input" type="text" name="firstname" value="">
+        </div>
+        <div class="input-grid">
+          <p class="inputbox">Last Name*</p>
+          <input id="lastname" class="input" type="text" name="lastname" value="">
+        </div>
+        <div class="input-grid">
+          <p class="inputbox">Middle Name(optional)</p>
+          <input id="middlename" class="input" type="text" name="middlename" value="">
+        </div>
+        <div class="input-grid">
+          <p class="inputbox">Driver License Number*</p>
+          <input id="license" class="input" type="text" name="license" value="">
+        </div>
+        <div class="input-grid">
+          <p class="inputbox">Auto Insurance Company Name*</p>
+          <input id="insurence" class="input" type="text" name="insurence" value="">
+        </div>
+        <div class="input-grid">
+          <p class="inputbox">Auto Insurance Policy Number*</p>
+          <input id="insurencenumber" class="input" type="text" name="insurencenumber" value="">
+        </div>
+
+        <div class="input-grid">
+          <p class="inputbox">Cooperate Name*</p>
+          <input id="cooperatename" class="input" type="text" name="cooperatename" value="">
+        </div>
+
+        <div class="input-grid">
+          <p class="inputbox">Cooperate Register Number*</p>
+          <input id="registernumber" class="input" type="text" name="registernumber" value="">
+        </div>
+
+        <div class="input-grid">
+          <p class="inputbox">Employee ID*</p>
+          <input id="employeeid" class="input" type="text" name="employeeid" value="">
+        </div>
+
+        <div class="input-grid">
+          <p class="inputbox">Country*</p>
+          <input id="country" class="input" type="text" name="country" value="">
+        </div>
+
+        <div class="input-grid">
+          <p class="inputbox">State*</p>
+          <input id="state" class="input" type="text" name="state" value="">
+        </div>
+
+        <div class="input-grid">
+          <p class="inputbox">City*</p>
+          <input id="city" class="input" type="text" name="city" value="">
+        </div>
+
+        <div class="input-grid">
+          <p class="inputbox">Street*</p>
+          <input id="street" class="input" type="text" name="street" value="">
+        </div>
+
+        <div class="input-grid">
+          <p class="inputbox">Unit</p>
+          <input id="unit" class="input" type="text" name="unit" value="">
+        </div>
+
+        <div class="input-grid">
+          <p class="inputbox">Zipcode*</p>
+          <input id="zipcode" class="input" type="text" name="zipcode" value="">
+        </div>
+
+        <button id="register" type="submit" name="button" onclick="window.location.href='register-success.html'"><span>r e g i s t e r</span></button>
+      </form>
+    </div>
+    <hr>
+
+    <div class="copy-right">
+      <p class = "right-text">©️2022 Yulan He @The Jas Car. All Rights Reserved.</p>
+    </div>
+
+    <script type="text/javascript">
+      document.getElementById("cooperatename").readOnly=true;
+      document.getElementById("cooperatename").style.background = "#9A9B94";
+      document.getElementById("cooperatename").value="";
+      document.getElementById("registernumber").readOnly=true;
+      document.getElementById("registernumber").style.background = "#9A9B94";
+      document.getElementById("registernumber").value="";
+      document.getElementById("employeeid").readOnly=true;
+      document.getElementById("employeeid").style.background = "#9A9B94";
+      document.getElementById("employeeid").value="";
+    </script>
+
+    <script>
+      function mycheckbox(){
+        var id2 = document.getElementById("checkid");
+        if(id2.checked == false){
+           document.getElementById("firstname").readOnly=false;
+           document.getElementById("firstname").style.background = "white";
+           document.getElementById("firstname").value="";
+           document.getElementById("lastname").readOnly=false;
+           document.getElementById("lastname").style.background = "white";
+           document.getElementById("lastname").value="";
+           document.getElementById("middlename").readOnly=false;
+           document.getElementById("middlename").value="";
+           document.getElementById("middlename").style.background = "white";
+           document.getElementById("license").readOnly=false;
+           document.getElementById("license").value="";
+           document.getElementById("license").style.background = "white";
+           document.getElementById("insurence").readOnly=false;
+           document.getElementById("insurence").value="";
+           document.getElementById("insurence").style.background = "white";
+           document.getElementById("insurencenumber").readOnly=false;
+           document.getElementById("insurencenumber").value="";
+           document.getElementById("insurencenumber").style.background = "white";
+
+           document.getElementById("cooperatename").readOnly=true;
+           document.getElementById("cooperatename").style.background = "#9A9B94";
+           document.getElementById("cooperatename").value="";
+           document.getElementById("registernumber").readOnly=true;
+           document.getElementById("registernumber").style.background = "#9A9B94";
+           document.getElementById("registernumber").value="";
+           document.getElementById("employeeid").readOnly=true;
+           document.getElementById("employeeid").style.background = "#9A9B94";
+           document.getElementById("employeeid").value="";
+         }
+         else{
+           document.getElementById("firstname").readOnly=true;
+           document.getElementById("firstname").value="";
+           document.getElementById("firstname").style.background = "#9A9B94";
+           document.getElementById("lastname").readOnly=true;
+           document.getElementById("lastname").value="";
+           document.getElementById("lastname").style.background = "#9A9B94";
+           document.getElementById("middlename").readOnly=true;
+           document.getElementById("middlename").value="";
+           document.getElementById("middlename").style.background = "#9A9B94";
+           document.getElementById("license").readOnly=true;
+           document.getElementById("license").value="";
+           document.getElementById("license").style.background = "#9A9B94";
+           document.getElementById("insurence").readOnly=true;
+           document.getElementById("insurence").value="";
+           document.getElementById("insurence").style.background = "#9A9B94";
+           document.getElementById("insurencenumber").readOnly=true;
+           document.getElementById("insurencenumber").value="";
+           document.getElementById("insurencenumber").style.background = "#9A9B94";
+
+           document.getElementById("cooperatename").readOnly=false;
+           document.getElementById("cooperatename").style.background = "white";
+           document.getElementById("cooperatename").value="";
+           document.getElementById("registernumber").readOnly=false;
+           document.getElementById("registernumber").style.background = "white";
+           document.getElementById("registernumber").value="";
+           document.getElementById("employeeid").readOnly=false;
+           document.getElementById("employeeid").style.background = "white";
+           document.getElementById("employeeid").value="";
+         }
+       }
+    </script>
+  </body>
+</html>

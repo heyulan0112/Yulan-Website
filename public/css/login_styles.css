@@ -1,0 +1,258 @@
+body{
+   /* background-color: black; */
+  background: linear-gradient(to top right,#ECE5C7, 20%, white);
+  margin: 0;
+}
+
+hr{
+  border-style: None;
+  border-top-style: dotted;
+  border-color: #ECE5C7;
+  border-width: 8px;
+  height: 0;
+  width: 20%;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-left: 200px;
+}
+
+.body-div{
+  display: inline-block;
+  margin-bottom: 50px;
+}
+
+.transparent{
+  display: inline;
+  margin-top: 120px;
+  margin-left: 100px;
+  margin-right: 0px;
+  height: 550px;
+  width: 520px;
+  background-color: #E9E9E5;
+  opacity: 0.5;
+  /* background-color: #D4D6C8; */
+  box-shadow:5px 5px 10px #909090;
+  z-index: -1;
+}
+
+.login_div{
+  display: inline-block;
+  margin-top: 120px;
+  margin-left: 80px;
+  margin-right: 0px;
+  height: 550px;
+  width: 520px;
+  background-color: #D4D6C8;
+  /* background-color: #D4D6C8; */
+  box-shadow:5px 5px 10px #909090;
+  border-radius: 4px;
+  z-index: 0;
+}
+
+.img-div{
+   display: inline-block;
+   opacity: 0.9;
+   z-index: 1;
+   margin-left: 0px;
+}
+
+
+.signin{
+  font-family: 'Berkshire Swash', cursive;
+  font-weight: bold;
+  font-size: 60px;
+  color: #4d602a;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  margin-left: 160px;
+  margin-bottom: 50px;
+  text-shadow: 8px 8px 15px white;
+}
+
+.menu{
+  display: inline;
+  position: absolute;
+  z-index: 1;
+  top:0;
+  left:0;
+  right:0;
+  height: 50px;
+  background-color: black;
+  opacity: 0.98;
+}
+
+.m-text{
+  display: inline;
+  position: relative;
+  z-index: 1;
+  left:1170px;
+  top: 3px;
+}
+
+.menu-text{
+  display: inline-block;
+  position: relative;
+  font-family: serif;
+  font-size: 16px;
+  color: #ECE5C7;
+  margin-top: 0;
+  padding: 10px 17px;
+  padding-top: 15px;
+  font-weight: bold;
+  text-decoration:none;
+  transition: 0.5s;
+  padding-bottom: 5px;
+}
+
+.menu-text:hover{
+  color: #FFE3A9;
+  opacity: 1;
+  font-size: 18px;
+  text-shadow: 5px 5px 15px white;
+}
+
+.company-name{
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  font-family: 'Berkshire Swash', cursive;
+  font-weight: bolder;
+  font-size: 20px;
+  margin-top: 12px;
+  margin-left: 25px;
+  color: #ECE5C7;
+  left:10px;
+  text-decoration: none;
+  transition: 0.5s;
+  padding-bottom: 10px;
+}
+
+.company-name:hover{
+  color: #FFE3A9;
+  opacity: 1;
+  font-size: 21px;
+  transition: 0.5s;
+  text-shadow: 5px 5px 15px white;
+}
+
+.input{
+  width: 60%;
+  padding: 12px 20px;
+  margin: 8px 100px;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  border-radius: 4px;
+}
+
+.input:focus{
+  border: 3px solid #4d602a;
+}
+
+.input:hover{
+  border: 4px solid #4d602a;
+}
+
+.inputbox{
+  font-family: serif;
+  color: #73777B;
+  font-weight: bolder;
+  margin-left: 100px;
+}
+
+#password-box{
+  -webkit-text-security: disc;
+  -moz-text-security: disc;
+  text-security: disc;
+}
+
+button{
+  display:block;
+  width: 60%;
+  padding: 12px 20px;
+  margin: 15px 100px;
+  margin-bottom: 0px;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #9A9B94;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Marcellus SC', serif;
+  font-weight: bold;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: #41444B;
+}
+
+button span{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+button:hover span {
+  padding-right: 25px;
+}
+
+button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.register-div{
+  display: block;
+  margin: 25px 160px;
+}
+
+.register-text{
+  font-family: serif;
+  color: #73777B;
+  padding-right: 5px;
+  display: inline;
+}
+.register-link{
+  font-family: serif;
+  color: #73777B;
+  font-size: 16px;
+  text-decoration: none;
+}
+.register-link:hover{
+  color: #354259;
+  font-size: 18px;
+  opacity: 1;
+  transition: 0.5s;
+  font-weight: bold;
+  text-shadow: 5px 5px 15px #909090;
+}
+
+.copy-right{
+  padding: 20px,0;
+  height: 80px;
+  margin-bottom: 0;
+  background-color:#ECE5C7;
+}
+.right-text{
+  text-align: center;
+  padding-top: 30px;
+  margin-bottom: 0;
+  color: #CABFAB;
+  font-size: 18px;
+  font-family: 'Abril Fatface', cursive;
+}
