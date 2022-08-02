@@ -20,17 +20,29 @@
   <script src="public/js/snake.js"></script>
   <script src="public/js/game.js"></script>
 
-  <button id="startgame" type="submit" name="button" onclick="myEatSnake()"><span>start</span></button>
+  <button id="startgame" type="submit" name="button" onclick="myEatSnake()"><span>start [easy level]</span></button>
+  <button id="startgame-mid" type="submit" name="button" onclick="myEatSnakeMid()"><span>start [mid level]</span></button>
+  <button id="startgame-hard" type="submit" name="button" onclick="myEatSnakeHard()"><span>start [hard level]</span></button>
   <label id="check" class="check">
     <input id="checkid" class="checkboxx" onclick="myColor()" type="checkbox" name="">
     Switch to Dark Mode?
   </label>
-  <p id="guide" class="guide">Press ⬆️⬇️⬅️➡️ on your keyboard to control snake. Eating one food equals to one score. </p>
+  <p id="guide" class="guide">Press ⬆️⬇️⬅️➡️ on your keyboard to control snake. If snake hits walls or eats itself then game over . </p>
   <div id="score-div" class="score-div">Your score: <span id="score" class="score">0</span></div>
   <script>
   function myEatSnake(){
     document.getElementById("score").innerHTML = "0";
-    var game = new Game(document.querySelector(".map"),document.querySelector(".score"));
+    var game = new Game(document.querySelector(".map"),document.querySelector(".score"),200);
+    game.init();
+  }
+  function myEatSnakeMid(){
+    document.getElementById("score").innerHTML = "0";
+    var game = new Game(document.querySelector(".map"),document.querySelector(".score"),150);
+    game.init();
+  }
+  function myEatSnakeHard(){
+    document.getElementById("score").innerHTML = "0";
+    var game = new Game(document.querySelector(".map"),document.querySelector(".score"),100);
     game.init();
   }
 

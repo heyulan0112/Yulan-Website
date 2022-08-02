@@ -2,22 +2,26 @@
 
    var that = null;
 
-   function Game(map,score){
+   // Add level
+   function Game(map,score,level){
      this.food = new Food();
      this.snake = new Snake();
      this.map = map;
      this.score = score;
+     this.level = level;
      that = this;
    }
 
    Game.prototype.init = function(){
      this.food.init(this.map);
      this.snake.init(this.map);
-     this.runSnake(this.food,this.map,this.score);
+     // Add level
+     this.runSnake(this.food,this.map,this.score,this.level);
      this.bindKey();
    };
 
-   Game.prototype.runSnake = function(food,map,score){
+   // Add level
+   Game.prototype.runSnake = function(food,map,score,level){
      var timeId=setInterval(function(){
        this.snake.move(food,map,score);
        this.snake.init(map);
@@ -40,7 +44,7 @@
            break;
          }
        }
-     }.bind(that),100);
+     }.bind(that),level);
    };
 
    Game.prototype.bindKey = function(){

@@ -75,7 +75,7 @@ body{
 
 
 button{
-  width: 8%;
+  width: 15%;
   padding: 12px;
   margin-top: 650px;
   margin-left: 180px;
@@ -134,7 +134,7 @@ button:hover span:after {
   radius:25px;
   left: 5px;
   top:20px;
-  margin-left: 0px;
+  margin-left: 200px;
   margin-right: 0px;
   margin-bottom: 0px;
 }
