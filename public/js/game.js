@@ -32,15 +32,24 @@
        if(head_x < 0 || head_x >= map_x){
          clearInterval(timeId);
          alert("Game over! Your Score is " + score.innerHTML + ". You can press start button below to restart the game.");
+         document.getElementById("startgame").disabled = false;
+         document.getElementById("startgame-mid").disabled = false;
+         document.getElementById("startgame-hard").disabled = false;
        }
        if(head_y < 0 || head_y >= map_y){
          clearInterval(timeId);
          alert("Game over! Your Score is " + score.innerHTML + ". You can press start button below to restart the game.");
+         document.getElementById("startgame").disabled = false;
+         document.getElementById("startgame-mid").disabled = false;
+         document.getElementById("startgame-hard").disabled = false;
        }
        for(var i=1; i<this.snake.body.length; i++){
          if(this.snake.body[i].x == head_x && this.snake.body[i].y == head_y){
            clearInterval(timeId);
            alert("Game over! Your Score is " + score.innerHTML + ". You can press start button below to restart the game.");
+           document.getElementById("startgame").disabled = false;
+           document.getElementById("startgame-mid").disabled = false;
+           document.getElementById("startgame-hard").disabled = false;
            break;
          }
        }

@@ -32,16 +32,25 @@
   <script>
   function myEatSnake(){
     document.getElementById("score").innerHTML = "0";
+    document.getElementById("startgame").disabled = true;
+    document.getElementById("startgame-mid").disabled = true;
+    document.getElementById("startgame-hard").disabled = true;
     var game = new Game(document.querySelector(".map"),document.querySelector(".score"),200);
     game.init();
   }
   function myEatSnakeMid(){
     document.getElementById("score").innerHTML = "0";
+    document.getElementById("startgame").disabled = true;
+    document.getElementById("startgame-mid").disabled = true;
+    document.getElementById("startgame-hard").disabled = true;
     var game = new Game(document.querySelector(".map"),document.querySelector(".score"),150);
     game.init();
   }
   function myEatSnakeHard(){
     document.getElementById("score").innerHTML = "0";
+    document.getElementById("startgame").disabled = true;
+    document.getElementById("startgame-mid").disabled = true;
+    document.getElementById("startgame-hard").disabled = true;
     var game = new Game(document.querySelector(".map"),document.querySelector(".score"),100);
     game.init();
   }
