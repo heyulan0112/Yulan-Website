@@ -1,38 +1,41 @@
  (function(){
-   var elements=[];
+
+   var elements = [];
+   var score = 0;
 
    function Snake(width,height,direction){
-     this.width=width||20;
-     this.height=height||20;
-     this.body=[
-       {x:3,y:2,color:"#363062"},
+     this.width = width||20;
+     this.height = height||20;
+     this.body = [
+       {x:3,y:2,color:"#5BB318"},
        {x:2,y:2,color:"#827397"},
        {x:1,y:2,color:"#827397"}
      ];
-     this.direction=direction||"right";
+     this.direction = direction||"right";
    }
 
    Snake.prototype.init=function(map){
      remove();
-     for(var i=0;i<this.body.length;i++){
-       var obj=this.body[i];
-       var div=document.createElement("div");
+     for(var i=0; i<this.body.length; i++){
+       var obj = this.body[i];
+       var div = document.createElement("div");
        map.appendChild(div);
-       div.style.position="absolute";
-       div.style.width=this.width+"px";
-       div.style.height=this.height+"px";
-       div.style.left=obj.x*this.width+"px";
-       div.style.top=obj.y*this.height+"px";
-       div.style.backgroundColor=obj.color;
+       div.style.position = "absolute";
+       div.style.width = this.width + "px";
+       div.style.height = this.height + "px";
+       div.style.left = obj.x * this.width + "px";
+       div.style.top = obj.y * this.height + "px";
+       div.style.backgroundColor = obj.color;
+       div.style.zindex = "1";
        elements.push(div);
      }
    };
 
-   Snake.prototype.move=function(food,map) {
-     var i=this.body.length-1;
-     for(;i>0;i--){
-       this.body[i].x=this.body[i-1].x
-       this.body[i].y=this.body[i-1].y;
+   Snake.prototype.move = function(food,map,score) {
+     var i = this.body.length - 1;
+     for(; i>0; i--){
+       this.body[i].x = this.body[i-1].x
+       this.body[i].y = this.body[i-1].y;
      }
      if(this.direction == "right"){
        this.body[0].x += 1;
@@ -55,9 +58,23 @@
          y:last.y,
          color:last.color
        });
-       food.init(map);
+       score.innerHTML = String(Number(score.innerHTML) + 1);
+       var flag = true;
+       while(flag == true){
+         flag = false;
+         food.init(map);
+         for(var i=0; i<this.body.length; i++){
+           var body_x = this.body[i].x * this.width;
+           var body_y = this.body[i].y * this.height;
+           if(body_x == food.x && body_y == food.y){
+             flag = true;
+             break;
+           }
+         }
+       }
      }
    };
+
    function remove(){
      var i = elements.length-1;
      for(;i>=0;i--){
@@ -67,4 +84,5 @@
      }
    }
    window.Snake=Snake;
+
  }());

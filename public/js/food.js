@@ -5,7 +5,7 @@
   function Food(width,height,color,x,y){
     this.width = width || 20;
     this.height = height || 20;
-    this.color = color || "#417D7A";
+    this.color = color || "#CC0E74";
     this.x = x || 0;
     this.y = y || 0;
   }
@@ -18,6 +18,7 @@
     div.style.height = this.height + "px";
     div.style.backgroundColor = this.color;
     div.style.position = "absolute";
+    div.style.zindex = "2";
     this.x = parseInt(Math.random() * (map.offsetWidth/this.width)) * this.width;
     this.y = parseInt(Math.random() * (map.offsetHeight/this.height)) * this.height;
     div.style.left = this.x + "px";

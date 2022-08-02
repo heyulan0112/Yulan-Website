@@ -1,57 +1,65 @@
  (function(){
-   var that=null;
-   function Game(map){
+
+   var that = null;
+
+   function Game(map,score){
      this.food = new Food();
      this.snake = new Snake();
      this.map = map;
+     this.score = score;
      that = this;
    }
-   Game.prototype.init=function(){
+
+   Game.prototype.init = function(){
      this.food.init(this.map);
      this.snake.init(this.map);
-     this.runSnake(this.food,this.map);
+     this.runSnake(this.food,this.map,this.score);
      this.bindKey();
    };
-   Game.prototype.runSnake=function(food,map){
+
+   Game.prototype.runSnake = function(food,map,score){
      var timeId=setInterval(function(){
-       this.snake.move(food,map);
+       this.snake.move(food,map,score);
        this.snake.init(map);
-       var map_x=map.offsetWidth/this.snake.width;
-       var map_y=map.offsetHeight/this.snake.height;
-       var head_x=this.snake.body[0].x;
-       var head_y=this.snake.body[0].y;
+       var map_x = map.offsetWidth / this.snake.width;
+       var map_y = map.offsetHeight / this.snake.height;
+       var head_x = this.snake.body[0].x;
+       var head_y = this.snake.body[0].y;
        if(head_x < 0 || head_x >= map_x){
          clearInterval(timeId);
-         alert("Game over");
+         alert("Game over! Your Score is " + score.innerHTML + ". You can press start button below to restart the game.");
        }
        if(head_y < 0 || head_y >= map_y){
          clearInterval(timeId);
-         alert("Game over");
+         alert("Game over! Your Score is " + score.innerHTML + ". You can press start button below to restart the game.");
        }
-       if(head_x == snake.body[snake.body.length-1].x && head_y == snake.body[snake.body.length-1].y){
-         clearInterval(timeId);
-         alert("Game over");
+       for(var i=1; i<this.snake.body.length; i++){
+         if(this.snake.body[i].x == head_x && this.snake.body[i].y == head_y){
+           clearInterval(timeId);
+           alert("Game over! Your Score is " + score.innerHTML + ". You can press start button below to restart the game.");
+           break;
+         }
        }
-     }.bind(that),200);
+     }.bind(that),100);
    };
 
-   Game.prototype.bindKey=function(){
+   Game.prototype.bindKey = function(){
      document.addEventListener("keydown",function(e){
-       if(e.keyCode == 37){
+       if(e.keyCode == 37 && this.snake.direction != "right"){
          this.snake.direction = "left";
        }
-       else if(e.keyCode == 38){
+       else if(e.keyCode == 38 && this.snake.direction != "down"){
          this.snake.direction = "up";
        }
-       else if(e.keyCode == 39){
+       else if(e.keyCode == 39 && this.snake.direction != "left"){
          this.snake.direction = "right";
        }
-       else if(e.keyCode == 40){
+       else if(e.keyCode == 40 && this.snake.direction != "up"){
          this.snake.direction = "down";
        }
      }.bind(that),false);
    };
 
-   window.Game=Game;
+   window.Game = Game;
 
  }());

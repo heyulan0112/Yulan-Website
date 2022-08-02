@@ -11,20 +11,53 @@
  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Marcellus+SC&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="gamebody">
   <div id="head" class="menu">
     <a class="homepage" href="index.html">Yulan Homepage</a>
   </div>
-  <div class="map"></div>
+  <div id="map" class="map"></div>
   <script src="public/js/food.js"></script>
   <script src="public/js/snake.js"></script>
   <script src="public/js/game.js"></script>
+
+  <button id="startgame" type="submit" name="button" onclick="myEatSnake()"><span>start</span></button>
+  <label id="check" class="check">
+    <input id="checkid" class="checkboxx" onclick="myColor()" type="checkbox" name="">
+    Switch to Dark Mode?
+  </label>
+  <p id="guide" class="guide">Press ⬆️⬇️⬅️➡️ on your keyboard to control snake. Eating one food equals to one score. </p>
+  <div id="score-div" class="score-div">Your score: <span id="score" class="score">0</span></div>
   <script>
-  var game = new Game(document.querySelector(".map"));
-  game.init();
-</script>
-<div class="copy-right">
-  <p class = "right-text">©️2022 Yulan He @The Jas Car. All Rights Reserved.</p>
-</div>
+  function myEatSnake(){
+    document.getElementById("score").innerHTML = "0";
+    var game = new Game(document.querySelector(".map"),document.querySelector(".score"));
+    game.init();
+  }
+
+  function myColor(){
+    var id1 = document.getElementById("checkid");
+    if(id1.checked == true){
+      document.getElementById("gamebody").style.background = "#2B2B2B";
+      document.getElementById("map").style.background = "#1F4690";
+      document.getElementById("check").style.color = "#F1EEE9";
+      document.getElementById("guide").style.color = "#F1EEE9";
+      document.getElementById("score-div").style.color = "#F1EEE9";
+      document.getElementById("score").style.color = "#F1EEE9";
+      document.getElementById("head").style.background = "#7C3E66";
+    }
+    else{
+      document.getElementById("gamebody").style.background = "#FEF5ED";
+      document.getElementById("map").style.background = "#E9D5CA";
+      document.getElementById("check").style.color = "#73777B";
+      document.getElementById("guide").style.color = "#73777B";
+      document.getElementById("score-div").style.color = "#73777B";
+      document.getElementById("score").style.color = "#73777B";
+      document.getElementById("head").style.background = "#4D4C7D";
+    }
+  }
+  </script>
+  <div class="copy-right">
+    <p class = "right-text">©️2022 Yulan He @The Eat Snake. All Rights Reserved.</p>
+  </div>
 </body>
 </html>
