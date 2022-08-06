@@ -218,7 +218,7 @@ hr{
 }
 
 .game-link:hover{
-  font-size: 21px;
+  font-size: 22px;
   text-shadow: 5px 5px 15px #ECE5C7;
 }
 
@@ -226,6 +226,30 @@ hr{
   display: block;
   margin-left:550px;
   margin-top: 50px;
+}
+
+.contact-div{
+  margin-left:550px;
+  margin-top: 50px;
+  width: 500px;
+}
+
+.contact-link{
+  text-decoration: none;
+  margin-right: 50px;
+  font-size: 18px;
+  transition: 0.5s;
+}
+
+.contact-link:hover{
+  font-size: 20px;
+  text-shadow: 5px 5px 15px #ECE5C7;
+}
+
+.contact-icon{
+  height: 50px;
+  width: 50px;
+  margin-right: 20px;
 }
 
 .copy-right{
