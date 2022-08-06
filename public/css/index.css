@@ -185,7 +185,28 @@ hr{
   display: inline;
   height: 70px;
   width: 70px;
-  margin-right: 50px;
+  margin-right: 20px;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+
+.work-icon2{
+  display: inline;
+  height: 70px;
+  width: 70px;
+  margin-left: 20px;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+
+.work-icon:hover{
+  height: 80px;
+  width: 80px;
+}
+
+.work-icon2:hover{
+  height: 80px;
+  width: 80px;
 }
 
 .game-link{
@@ -193,9 +214,33 @@ hr{
   text-decoration: none;
   color: #CA8A8B;
   display: inline-block;
+  transition: 0.5s;
 }
+
+.game-link:hover{
+  font-size: 21px;
+  text-shadow: 5px 5px 15px #ECE5C7;
+}
+
 .link-div{
   display: block;
-  margin-left:500px;
-  margin-top: 70px;
+  margin-left:550px;
+  margin-top: 50px;
+}
+
+.copy-right{
+  padding: 20px,0;
+  height: 80px;
+  margin-top: 0px;
+  margin-bottom: 0;
+  bottom: 0px;
+  background-color:#E2BCB7;
+}
+.right-text{
+  text-align: center;
+  padding-top: 30px;
+  margin-bottom: 0;
+  color: #F6E6E4;
+  font-size: 18px;
+  font-family: 'Abril Fatface', cursive;
 }
