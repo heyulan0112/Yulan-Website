@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Welcome to Jas Hello Bubble Game</title>
+ <link rel="stylesheet" href="public/css/bubble.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Marcellus+SC&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+</head>
+<body id="gamebody">
+  <div id="head" class="menu">
+    <a class="homepage" href="index.html">Yulan Homepage</a>
+  </div>
+  <div id="map" class="map"></div>
+  <script src="public/js/bubble.js"></script>
+  <script src="public/js/hellobubble.js"></script>
+  <script>
+    var game = new Game(document.querySelector(".map"));
+    game.init();
+  </script>
+</body>
+</html>
