@@ -4,10 +4,10 @@ body{
 }
 
 .map {
-  top: 100px;
+  top: 80px;
   left: 280px;
   width: 800px;
-  height: 500px;
+  height: 570px;
   background-color: #F5F5F5;
   position: absolute;
   /* margin-top: 5px; */

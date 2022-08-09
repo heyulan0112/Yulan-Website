@@ -19,6 +19,7 @@
     div.style.backgroundColor = bubble_colors[this.color];
     div.style.position = "absolute";
     div.style.zindex = "2";
+    div.style.transition = 0.5 + "s";
     if(this.row % 2 == 0){
       // even
       this.x = this.diameter + (this.column-1)*this.diameter;
@@ -30,6 +31,11 @@
     this.y = this.row * (Math.sqrt(3)/2)*this.diameter;
     div.style.left = this.x + "px";
     div.style.top = this.y + "px";
+    this.ele = div;
+    // div.addEventListener("click",function(e){
+    //   div.style.width = 70 + "px";
+    //   div.style.height = 70 + "px";
+    // },false);
     // elements.push(div);
   };
 
