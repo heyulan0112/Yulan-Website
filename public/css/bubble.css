@@ -1,20 +1,26 @@
 body{
-  background: #30475E;
+  background: #ECE5C7;
   margin: 0;
 }
 
 .map {
-  top: 80px;
-  left: 280px;
-  width: 800px;
-  height: 570px;
-  background-color: #F5F5F5;
+  margin-left: 10%;
+  margin-top: 1%;
+  border-radius: 20px;
+  display: inline;
+  margin-right: 0px;
+
+}
+
+.welcome-text{
+  display: inline;
   position: absolute;
-  /* margin-top: 5px; */
-  /* margin-left: 220px; */
-  margin-bottom: 22px;
-  border: none;
-  display: block;
+  top: 250px;
+  left:820px;
+  font-size: 40px;
+  font-family: 'Berkshire Swash', cursive;
+  width: 800px;
+  color: #354259;
 }
 
 .menu{
@@ -62,13 +68,13 @@ body{
   height: 80px;
   margin-top: 0px;
   margin-bottom: 0;
-  background-color:#ECE5C7;
+  background-color:#CDC2AE;
 }
 .right-text{
   text-align: center;
   padding-top: 30px;
   margin-bottom: 0;
-  color: #CABFAB;
+  color: #ECE5C7;
   font-size: 18px;
   font-family: 'Abril Fatface', cursive;
 }
