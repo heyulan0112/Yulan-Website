@@ -147,6 +147,7 @@ nav:hover {
   text-shadow: 5px 5px 15px white;
 }
 
+
 .company-name{
   display: inline-block;
   position: absolute;
@@ -158,6 +159,17 @@ nav:hover {
   margin-left: 25px;
   color: #ECE5C7;
   left:10px;
+  text-decoration: none;
+  transition: 0.5s;
+  padding-bottom: 10px;
+}
+
+.company-name:hover{
+  color: #FFE3A9;
+  opacity: 1;
+  font-size: 21px;
+  transition: 0.5s;
+  text-shadow: 5px 5px 15px white;
 }
 
 .learn-more-btn{

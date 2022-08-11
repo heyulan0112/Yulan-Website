@@ -79,7 +79,6 @@ window.onload = function() {
         loadcount = 0;
         loadtotal = imagefiles.length;
         preloaded = false;
-
         var loadedimages = [];
         for (var i=0; i<imagefiles.length; i++) {
             var image = new Image();
@@ -122,19 +121,8 @@ window.onload = function() {
         window.requestAnimationFrame(main);
         if (!initialized) {
             context.clearRect(0, 0, map.width, map.height);
-            drawFrame();
-            var loadpercentage = loadcount/loadtotal;
-            context.strokeStyle = "#C2DED1";
-            context.lineWidth=3;
-            context.strokeRect(18.5, 0.5 + map.height - 51, map.width-37, 32);
-            context.fillStyle = "#C2DED1";
-            context.fillRect(18.5, 0.5 + map.height - 51, loadpercentage*(map.width-37), 32);
-            var loadtext = "Loaded " + loadcount + "/" + loadtotal + " images";
-            context.fillStyle = "#000000";
-            context.font = "16px Verdana";
-            context.fillText(loadtext, 18, 0.5 + map.height - 63);
             if (preloaded) {
-                setTimeout(function(){initialized = true;}, 1000);
+                setTimeout(function(){initialized = true;}, 100);
             }
         }
         else {
@@ -204,7 +192,7 @@ window.onload = function() {
                 cluster[i].removed = true;
             }
             // one bubble one score
-            score += cluster.length;
+            score += cluster.length * 10;
             floatingclusters = findFloatingClusters();
             if (floatingclusters.length > 0) {
                 for (var i=0; i<floatingclusters.length; i++) {
@@ -213,7 +201,7 @@ window.onload = function() {
                         bubble.shift = 0;
                         bubble.shift = 1;
                         bubble.velocity = player.bubble.dropspeed;
-                        score += 100;
+                        score += 10;
                     }
                 }
             }
@@ -480,7 +468,6 @@ window.onload = function() {
     }
 
     function render() {
-        drawFrame();
         var yoffset =  level.bubbleheight/2;
 
         context.fillStyle = "#F5F5F5";
@@ -491,13 +478,8 @@ window.onload = function() {
         context.fillStyle = "#354259";
         context.fillRect(level.x - 4, level.y - 4 + level.height + 4 - yoffset, level.width + 8, 2*level.bubbleheight + 3);
 
-        context.fillStyle = "#ffffff";
-        context.font = "18px Marcellus SC";
-        var scorex = level.x + level.width - 150;
-        var scorey = level.y+level.height + level.bubbleheight - yoffset - 8;
-        drawCenterText("s c o r e:", scorex, scorey, 150);
-        context.font = "24px  serif";
-        drawCenterText(score, scorex, scorey+30, 150);
+        var scoreText = document.getElementById("score");
+        scoreText.innerHTML = String(score);
 
         if (showcluster) {
             renderCluster(cluster, 255, 128, 128);
@@ -521,16 +503,7 @@ window.onload = function() {
     }
 
     function drawFrame() {
-        // context.fillStyle = "#e8eaec";
-        // context.fillRect(0, 0, map.width, map.height);
-
-        // context.fillStyle = "#30475E";
-        // context.fillRect(0, 0, map.width, 79);
-
-        // context.fillStyle = "#ffffff";
-        // context.font = "24px Berkshire Swash";
-        // context.fillText("Jas Hello Bubble Shooter", 10, 50);
-
+      //
     }
 
     function renderbubbles() {
@@ -560,24 +533,17 @@ window.onload = function() {
     function renderPlayer() {
         var centerx = player.x + level.bubblewidth/2;
         var centery = player.y + level.bubbleheight/2;
-        context.fillStyle = "#7a7a7a";
+        context.lineWidth = 4;
+        context.strokeStyle = "#4FD3C4";
         context.beginPath();
-        context.arc(centerx, centery, level.radius+12, 0, 2*Math.PI, false);
-        context.fill();
-        context.lineWidth = 2;
-        context.strokeStyle = "#8c8c8c";
-        context.stroke();
-        context.lineWidth = 2;
-        context.strokeStyle = "#1D5C63";
-        context.beginPath();
+        context.setLineDash([10, 10]);
         context.moveTo(centerx, centery);
-        context.lineTo(centerx + 1.5*level.bubblewidth * Math.cos(degToRad(player.angle)), centery - 1.5*level.bubbleheight * Math.sin(degToRad(player.angle)));
+        context.lineTo(centerx + 2*level.bubblewidth * Math.cos(degToRad(player.angle)), centery - 2*level.bubbleheight * Math.sin(degToRad(player.angle)));
         context.stroke();
         drawBubble(player.nextbubble.x, player.nextbubble.y, player.nextbubble.bubblecolor);
         if (player.bubble.visible) {
             drawBubble(player.bubble.x, player.bubble.y, player.bubble.bubblecolor);
         }
-
     }
 
     function getbubbleCoordinate(column, row) {
@@ -603,7 +569,7 @@ window.onload = function() {
     function drawBubble(x, y, index) {
         if (index < 0 || index >= bubblecolors)
             return;
-        context.drawImage(bubbleimage, index * 40 + 3,0,40,40, x, y, level.bubblewidth, level.bubbleheight);
+        context.drawImage(bubbleimage, index*40+3,0,40,40, x, y, level.bubblewidth, level.bubbleheight);
     }
 
     function newGame() {
