@@ -3,16 +3,26 @@
     "body-parser": "^1.20.0",
     "express": "^4.18.1",
     "https": "^1.0.0",
+    "mongodb": "^4.8.1",
+    "mongoose": "^6.5.2",
     "mysql": "^2.18.1",
     "request": "^2.88.2"
   },
   "scripts": {
     "start": "node server.js"
   },
-  "name": "web",
+  "name": "yulan-web",
   "version": "1.0.0",
   "description": "JasCar Car Rental Website",
   "main": "server.js",
   "author": "Yulan He",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heyulan0112/Yulan-Website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/heyulan0112/Yulan-Website/issues"
+  },
+  "homepage": "https://github.com/heyulan0112/Yulan-Website#readme"
 }
