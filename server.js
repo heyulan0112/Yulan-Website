@@ -27,7 +27,6 @@ app.get("/hellobubble.html",function(req,res){
   res.sendFile(__dirname + "/hellobubble.html");
 });
 
-
 // let connectInfo = mysql.createConnection({
 //   host:'localhost',
 //   port: 3306,
@@ -67,6 +66,35 @@ app.get("/hellobubble.html",function(req,res){
 // Mongoose version
 const mongoose = require('mongoose');
 mongoose.connect("mongodb+srv://jasmine:jasmine123456@cluster0.ugqojny.mongodb.net/JasCarDB",{useNewUrlParser: true});
+
+const VehicleClassSchema = new mongoose.Schema({
+  over_mileage_fee: Number,
+  rental_rate: Number,
+  class_name: String
+});
+const VehicleClass = mongoose.model('VehicleClass',VehicleClassSchema,'VehicleClass');
+
+const OfficeSchema = new mongoose.Schema({
+  country: String,
+  state: String,
+  street: String,
+  unit: String,
+  zipcode: String,
+  phone_number: String,
+  city: String
+});
+const Office = mongoose.model('Office',OfficeSchema,'Offices');
+
+const VehicleSchema = new mongoose.Schema({
+  make: String,
+  model: String,
+  year: Date,
+  vin: String,
+  lic_plt_num: String,
+  class_id: VehicleClassSchema,
+  office_id: OfficeSchema
+});
+const Vehicle = mongoose.model('Vehicle',VehicleSchema,'Vehicles');
 
 // schema is template for all docs in this collection
 // create
@@ -123,8 +151,9 @@ mongoose.connect("mongodb+srv://jasmine:jasmine123456@cluster0.ugqojny.mongodb.n
 //   }
 // });
 //
-// // Find by mongoose
-// // return all vehicle docs in Vehicle collection
+
+// Find Vehicles by mongoose
+// return all vehicle docs in Vehicle collection
 // Vehicle.find(finction(err,vehicles){
 //   if(err){
 //     console.log(err);
@@ -135,7 +164,7 @@ mongoose.connect("mongodb+srv://jasmine:jasmine123456@cluster0.ugqojny.mongodb.n
 //     // mongoose.connection.close();
 //     // Traverse query result
 //     vehicles.forEach(function(v){
-//       console.log(v.name);
+//       console.log(v.make);
 //     });
 //   }
 // });
@@ -263,6 +292,36 @@ app.post("/login.html",function(req,res){
 
 app.get("/explore.html",function(req,res){
   res.sendFile(__dirname + "/explore.html");
+});
+
+
+app.post("/explore.html",function(req,res){
+  Vehicle.find(function(err,result){
+    if(err){
+      console.log(err);
+    }
+    else{
+      result.forEach(function(vehicle){
+        console.log(vehicle.make);
+        res.write("<p> Vehicle Make is: " + vehicle.make + "</p>");
+        res.write("<p> Vehicle Model is: " + vehicle.model + "</p>");
+        res.write("<p> Vehicle Year is: " + String(vehicle.year) + "</p>");
+        res.write("<p> Vehicle Vin is: " + vehicle.vin + "</p>");
+        res.write("<p> Vehicle Plt Number is: " + vehicle.lic_plt_num + "</p>");
+        res.write("<hr>");
+        // VehicleClass.findOne({_id:vehicle.class_id},function(err,classResult){
+        //   if(err){
+        //     console.log(err);
+        //   }
+        //   else{
+        //     console.log(classResult);
+        //     // res.write(classResult.class_name);
+        //   }
+        // });
+      });
+      res.send();
+    }
+  });
 });
 
 app.get("/about.html",function(req,res){

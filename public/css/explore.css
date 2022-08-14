@@ -1,0 +1,78 @@
+.menu{
+  display: inline;
+  position: absolute;
+  z-index: 1;
+  top:0;
+  left:0;
+  right:0;
+  background-color: black;
+  height: 50px;
+  opacity: 0.9;
+  position: fixed;
+  animation:menu-fadenum 0.8s;
+}
+
+@keyframes menu-fadenum {
+  0%{height: 0px;}
+  100%{height: 50px;}
+}
+
+@keyframes fadenum{
+   0%{opacity: 0.5;}
+   100%{opacity: 1;}
+}
+
+.m-text{
+  display: inline;
+  position: relative;
+  z-index: 1;
+  left:1170px;
+  top: 3px;
+}
+
+.menu-text{
+  display: inline-block;
+  position: relative;
+  font-family: serif;
+  font-size: 16px;
+  color: #ECE5C7;
+  margin-top: 0;
+  padding: 10px 17px;
+  padding-top: 15px;
+  font-weight: bold;
+  text-decoration: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.menu-text:hover{
+  color: #FFE3A9;
+  opacity: 1;
+  font-size: 18px;
+  text-shadow: 5px 5px 15px white;
+}
+
+
+.company-name{
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  font-family: 'Berkshire Swash', cursive;
+  font-weight: bolder;
+  font-size: 20px;
+  margin-top: 12px;
+  margin-left: 25px;
+  color: #ECE5C7;
+  left:10px;
+  text-decoration: none;
+  transition: 0.5s;
+  padding-bottom: 10px;
+}
+
+.company-name:hover{
+  color: #FFE3A9;
+  opacity: 1;
+  font-size: 21px;
+  transition: 0.5s;
+  text-shadow: 5px 5px 15px white;
+}

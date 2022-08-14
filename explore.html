@@ -2,13 +2,34 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="css/explore.css">
     <title>Here is explore page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Marcellus+SC&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="head" class="menu">
-      <a class="homepage" href="index.html">Yulan Homepage</a>
+      <a class="company-name" href="index.html">JasCar</a>
+      <div class="m-text">
+        <a class="menu-text" href="about.html">About</a>
+        <a class="menu-text" href="explore.html">Explore</a>
+        <a class="menu-text" href="login.html">Sign in</a>
+      </div>
     </div>
-    <script type='text/javascript' src='public/js/explore.js'></script>
-    
+    <form id="form" action="/explore.html" method="post">
+      <!-- <div class="car-div" onload="document.getElementById('form').submit()">
+      </div> -->
+      <button style="margin-top: 100px;" type="submit" name="button"> Show up vehicles info </button>
+    </form>
+    <!-- <script type="text/javascript">
+      var f = document.querySelector('#form');
+      document.onload = function(){
+        f.submit()
+      }
+    </script> -->
   </body>
 </html>
