@@ -92,9 +92,26 @@ const VehicleSchema = new mongoose.Schema({
   vin: String,
   lic_plt_num: String,
   class: String,
+  available: String,
   office_id: OfficeSchema
 });
 const Vehicle = mongoose.model('Vehicle',VehicleSchema,'Vehicles');
+
+const OngoingOrderSchema = new mongoose.Schema({
+  customer_id: Number,
+  pickup_address: String,
+  pickup_date: Date,
+  vin: String,
+  start_odometer: Number,
+  daily_odometer: Number,
+  payment_method: String,
+  card_number: String,
+  card_holder: String,
+  expiry_date: Date,
+  cvc: String
+});
+
+const OngoingOrder = mongoose.model('OngoingOrder',OngoingOrderSchema);
 
 // schema is template for all docs in this collection
 // create
@@ -321,10 +338,46 @@ app.post("/checkout",function(req,res){
   var card_number = req.body.card_number;
   var card_holder = req.body.card_holder;
   var expiry_date = req.body.expiry_date;
+  var cvc = req.body.cvc;
   var date = new Date();
-  // insert to monodb
-  
-  res.end();
+  var customer_id = 1;
+  var pickup_address = "Hundson Street Unit 203, Manhattan, NY, 11211";
+  var start_odometer = 0;
+  var daily_odometer = 500;
+  // update car to be not available
+  Vehicle.updateOne({vin:vin},{available:"no"},function(err){
+    if(err){
+      console.log(err);
+      res.send("Sorry, fail to checkout!");
+    }
+    else{
+      console.log("successfully update car to be not available.");
+    }
+  })
+  // insert into on-going order collection
+  const order = new OngoingOrder({
+    customer_id: customer_id,
+    pickup_address: pickup_address,
+    pickup_date: date.getDate(),
+    vin: vin,
+    start_odometer: start_odometer,
+    daily_odometer: daily_odometer,
+    payment_method: payment_method,
+    card_number: card_number,
+    card_holder: card_holder,
+    expiry_date: expiry_date,
+    cvc: cvc
+  });
+  order.save(function(err){
+    if(err){
+      console.log(err);
+      res.send("Sorry, fail to checkout!");
+    }
+    else{
+      console.log("successfully insert on-going order.");
+    }
+  });
+  res.send("Successfully Checkout!");
 });
 
 
@@ -426,66 +479,11 @@ app.post("/register.html",function(req,res){
   else{
     alert("Please Check Your Information Again.");
   }
-
 });
 
 app.get("/rent.html",function(req,res){
   res.sendFile(__dirname + "/rent.html");
 });
-
-//
-// app.get("/rent.html",function(req,res){
-//   res.sendFile(__dirname + "/rent.html");
-//   // var query = pool.getConnection(function(err,connection){
-//   //
-//   // });
-//
-//
-//   // var pagenum = 2;
-//   // var page = 0;
-//   // if(req.query.page!=undefined){
-//   //     page=parseInt(req.query.page)-1;
-//   // }
-//   // console.log("page="+page);
-//   // var sql="select * from sjd_vehicles limit "+page*pagenum+"," + pagenum;
-//   // var sql2="select * from sjd_vehicles";
-//   // var count=0;
-//   // var conn = pool.getConnection(function(err,conn){
-//   //   if(err){
-//   //     callback(err,null,null);
-//   //   }
-//   //   else{
-//   //     // record total lines in this table.
-//   //     conn.query(sql2,function(err,results,fields){
-//   //       if(result.length % pagenum != 0){
-//   //           count = parseInt(result.length/pagenum+1);
-//   //       }
-//   //       else{
-//   //           count = parseInt(result.length/pagenum);
-//   //       }
-//   //       console.log("Length=" + count);
-//   //     });
-//   //
-//   //     conn.query(sql,function(err,result,fields){
-//   //       if(err){
-//   //         return "Fail";
-//   //       }
-//   //       console.log(result);
-//   //       var nums=new Array();
-//   //       for(var i=1;i<=count;i++){
-//   //           nums.push(i);
-//   //       }
-//   //       console.log("Page No.="+nums);
-//   //       res.render('index.html',{
-//   //           students: result,
-//   //           nums:nums,
-//   //           page:page
-//   //       });
-//   //     })
-//   //
-//   //   }
-//   // });
-// });
 
 app.listen(process.env.PORT || 3000, function(){
   console.log("Server is running on port 3000");

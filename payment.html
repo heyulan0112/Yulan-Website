@@ -65,12 +65,13 @@
                 payment_method: $("#method").val(),
                 card_number: $("#cardnumber").val(),
                 card_holder: $("#cardholder").val(),
-                expiry_date: $("#expirydate").val()
+                expiry_date: $("#expirydate").val(),
+                cvc: $("#cvc").val()
               },
               dataType:'json',
               success: function(res){
                 // access return value
-
+                alter(res);
               }
             });
           }
