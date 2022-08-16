@@ -27,14 +27,17 @@
     <div>
       <p class="start-text"> Explore Your Next Car </p>
     </div>
-
     <a class="topa" href="#start-img">
       <div class="topb">
         <p class="back-text">Back Top</p>
       </div>
     </a>
-
     <script type="text/javascript">
+      function mycheckout(){
+        var obj = event.srcElement;
+        window.sessionStorage.setItem('vin', $(obj).attr('id'));
+        window.location.href='payment.html';
+      }
       $.ajax({
         type: "POST",
         url: '/getcar',
@@ -45,17 +48,14 @@
           for(var i = 0; i<res.length; i++){
             $("body").append("<div id= 'car-info"+ String(i) +"' class='car-info'></div>");
             $("#car-info"+String(i)).append("<img class='car-img' id='car-img"+ String(i) +"' width='370' height='180' src=" + pics[0] + " alt=''>");
-            $("#car-info"+String(i)).append("<button id='checkout' type='button' name='button' onclick='mycheckout()'><span>c h e c k o u t</span></button>");
-            $("#car-info"+String(i)).append("<p class='car-text' id='car-text"+ String(i) +"'>"+ res[i].make + "  " + res[i].model + "  " + res[i].year + "  " + res[i].vin + "  " + res[i].lic_plt_num + "  " + res[i].class + "</p>");
+            $("#car-info"+String(i)).append("<button id='checkout' type='button' name='button' onclick='mycheckout()'><span id = '"+ res[i].vin +"'>c h e c k o u t</span></button>");
+            $("#car-info"+String(i)).append("<p class='car-text' id='car-text"+ String(i) +"'>"+ res[i].make + "  " + res[i].model + "  " + res[i].year + "  " + res[i].vin + "  " + res[i].lic_plt_num + "  "
+            + res[i].class + "</p>");
             $("body").append("<div id= 'car-info"+ String(i) +"' class='car-info'></div>");
             $("#car-info"+String(i)).append("<hr>");
           }
         }
       });
-      function mycheckout(){
-        // go to rent this car
-      }
-
     </script>
     <div class="copy-right">
       <p class = "right-text">©️2022 Yulan He @The Jas Car. All Rights Reserved.</p>
