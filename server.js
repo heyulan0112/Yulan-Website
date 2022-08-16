@@ -91,7 +91,7 @@ const VehicleSchema = new mongoose.Schema({
   year: Date,
   vin: String,
   lic_plt_num: String,
-  class_id: VehicleClassSchema,
+  class: String,
   office_id: OfficeSchema
 });
 const Vehicle = mongoose.model('Vehicle',VehicleSchema,'Vehicles');
@@ -294,6 +294,18 @@ app.get("/explore.html",function(req,res){
   res.sendFile(__dirname + "/explore.html");
 });
 
+app.post("/getcar",function(req,res){
+  Vehicle.find(function(err,result){
+    if(err){
+      console.log(err);
+    }
+    else{
+      var pics = ["image/72-721371_bmw-m3-hd-png-download.png"];
+      res.json(result);
+    }
+  });
+});
+
 
 app.post("/explore.html",function(req,res){
   Vehicle.find(function(err,result){
@@ -301,20 +313,31 @@ app.post("/explore.html",function(req,res){
       console.log(err);
     }
     else{
+      var pics = ["image/72-721371_bmw-m3-hd-png-download.png"];
+      res.json(result);
       result.forEach(function(vehicle){
-        console.log(vehicle.make);
-        res.write("<p> Vehicle Make is: " + vehicle.make + "</p>");
-        res.write("<p> Vehicle Model is: " + vehicle.model + "</p>");
-        res.write("<p> Vehicle Year is: " + String(vehicle.year) + "</p>");
-        res.write("<p> Vehicle Vin is: " + vehicle.vin + "</p>");
-        res.write("<p> Vehicle Plt Number is: " + vehicle.lic_plt_num + "</p>");
-        res.write("<hr>");
-        // VehicleClass.findOne({_id:vehicle.class_id},function(err,classResult){
+        // console.log(vehicle.make);
+        // console.log(document.getElementById('form'));
+
+        // res.write("<head><link rel='stylesheet' href='css/style.css'></head>");
+        // res.write("<p> Vehicle Make is: " + vehicle.make + "</p>");
+        // res.write("<p> Vehicle Model is: " + vehicle.model + "</p>");
+        // res.write("<p> Vehicle Year is: " + String(vehicle.year) + "</p>");
+        // res.write("<p> Vehicle Vin is: " + vehicle.vin + "</p>");
+        // res.write("<p> Vehicle Plt Number is: " + vehicle.lic_plt_num + "</p>");
+        // res.write("<p> Vehicle Type is: " + vehicle.class + "</p>");
+        // res.write("<img width='400' height='200' src=" + pics[0] + " alt=''>");
+        // res.write("<hr styles = ''>");
+
+        // console.log(vehicle.class_id);
+        // VehicleClass.find({_id:vehicle.class_id},function(err,classResult){
         //   if(err){
         //     console.log(err);
         //   }
         //   else{
+        //     console.log(vehicle.class_id);
         //     console.log(classResult);
+        //     res.write("<p> Vehicle Class is: " + classResult[0].class_name + "</p>");
         //     // res.write(classResult.class_name);
         //   }
         // });

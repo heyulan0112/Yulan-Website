@@ -1,3 +1,72 @@
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  margin: 0;
+}
+
+.first-img{
+  display: inline;
+  position: relative;
+  z-index: -1;
+  animation:fadenum 2s;
+  overflow: hidden;
+  height: 50%;
+  /* filter: blur(2px); */
+}
+
+.background-img{
+  height: 400px;
+  width: 100%;
+  animation:fadenum 2s;
+}
+
+.start-text{
+  display: inline;
+  position: absolute;
+  z-index: 1;
+  font-family: 'Berkshire Swash', cursive;
+  font-weight: bold;
+  font-size: 45px;
+  color: white;
+  top: 180px;
+  left:500px;
+  text-align: center;
+}
+
+.back-text{
+  font-size: 20px;
+  font-family: serif;
+  color: #ECE5C7;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.topb:hover{
+  position: fixed;
+  bottom: 30px;
+  right:30px;
+  background-color: black;
+  opacity: 0.8;
+  border-radius: 40px;
+  height: 70px;
+  width: 70px;
+  transition: 0.3s;
+  border: 2px solid black;
+}
+
+.topb{
+  position: fixed;
+  bottom: 30px;
+  right:30px;
+  background-color: #CDC2AE;
+  opacity: 0.8;
+  border-radius: 40px;
+  height: 70px;
+  width: 70px;
+}
+
 .menu{
   display: inline;
   position: absolute;
@@ -75,4 +144,49 @@
   font-size: 21px;
   transition: 0.5s;
   text-shadow: 5px 5px 15px white;
+}
+
+
+.copy-right{
+  padding: 20px,0;
+  height: 50px;
+  margin-bottom: 0;
+  background-color:#ECE5C7;
+}
+.right-text{
+  padding-top: 15px;
+  margin-bottom: 0;
+  color: #CABFAB;
+  font-size: 18px;
+  font-family: 'Abril Fatface', cursive;
+  margin-left: 500px;
+}
+
+
+.car-info{
+  margin-top: 80px;
+  margin-bottom: 30px;
+}
+
+.car-img{
+  margin-left: 600px;
+  transition: 0.5s;
+}
+
+.car-img:hover{
+  height: 150px;
+  width: 300px;
+}
+
+.car-text{
+  margin-left: 320px;
+  font-family: serif;
+  color: #354259;
+  font-size: 20px;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.car-text:hover{
+  font-size: 22px;
 }

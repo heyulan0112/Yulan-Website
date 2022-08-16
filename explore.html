@@ -12,6 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
   </head>
   <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <div id="start-img" class="first-img">
+      <img class="background-img"src="image/cx_mires2-hpbanner_1980x850.jpeg" alt="background">
+    </div>
     <div id="head" class="menu">
       <a class="company-name" href="index.html">JasCar</a>
       <div class="m-text">
@@ -20,16 +24,33 @@
         <a class="menu-text" href="login.html">Sign in</a>
       </div>
     </div>
-    <form id="form" action="/explore.html" method="post">
-      <!-- <div class="car-div" onload="document.getElementById('form').submit()">
-      </div> -->
-      <button style="margin-top: 100px;" type="submit" name="button"> Show up vehicles info </button>
-    </form>
-    <!-- <script type="text/javascript">
-      var f = document.querySelector('#form');
-      document.onload = function(){
-        f.submit()
-      }
-    </script> -->
+    <div>
+      <p class="start-text"> Explore Your Next Car </p>
+    </div>
+
+    <a class="topa" href="#start-img">
+      <div class="topb">
+        <p class="back-text">Back Top</p>
+      </div>
+    </a>
+
+    <script type="text/javascript">
+      $.ajax({
+        type: "POST",
+        url: '/getcar',
+        async: false,
+        success: function(res){
+          var pics = ["image/72-721371_bmw-m3-hd-png-download.png"];
+          for(var i = 0; i<res.length; i++){
+            $("body").append("<div id= 'car-info"+ String(i) +"' class='car-info'></div>");
+            $("#car-info"+String(i)).append("<img class='car-img' id='car-img"+ String(i) +"' width='200' height='100' src=" + pics[0] + " alt=''>");
+            $("#car-info"+String(i)).append("<p class='car-text' id='car-text"+ String(i) +"'>"+ res[i].make + "  " + res[i].model + "  " + res[i].year + "  " + res[i].vin + "  " + res[i].lic_plt_num + "  " + res[i].class + "</p>");
+          }
+        }
+      });
+    </script>
+    <div class="copy-right">
+      <p class = "right-text">©️2022 Yulan He @The Jas Car. All Rights Reserved.</p>
+    </div>
   </body>
 </html>
