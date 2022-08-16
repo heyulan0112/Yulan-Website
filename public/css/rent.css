@@ -1,6 +1,82 @@
+html{
+  scroll-behavior: smooth;
+}
+
+hr{
+  border-style: None;
+  border-top-style: dotted;
+  border-color: #D6D5A8;
+  border-width: 8px;
+  height: 0;
+  width: 70%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+}
 body{
-  background-color: black;
   margin: 0;
+  background: #F5F5F5;
+}
+
+.first-img{
+  display: inline;
+  position: relative;
+  z-index: -1;
+  animation:fadenum 2s;
+  overflow: hidden;
+  height: 50%;
+  /* filter: blur(2px); */
+}
+
+.background-img{
+  height: 400px;
+  width: 100%;
+  animation:fadenum 2s;
+}
+
+.start-text{
+  display: inline;
+  position: absolute;
+  z-index: 1;
+  font-family: 'Berkshire Swash', cursive;
+  font-weight: bold;
+  font-size: 45px;
+  color: white;
+  top: 180px;
+  left:500px;
+  text-align: center;
+}
+
+.back-text{
+  font-size: 20px;
+  font-family: serif;
+  color: #ECE5C7;
+  margin-top: 12px;
+  text-align: center;
+}
+
+.topb:hover{
+  position: fixed;
+  bottom: 30px;
+  right:30px;
+  background-color: black;
+  opacity: 0.8;
+  border-radius: 40px;
+  height: 70px;
+  width: 70px;
+  transition: 0.3s;
+  border: 2px solid black;
+}
+
+.topb{
+  position: fixed;
+  bottom: 30px;
+  right:30px;
+  background-color: #CDC2AE;
+  opacity: 0.8;
+  border-radius: 40px;
+  height: 70px;
+  width: 70px;
 }
 
 .menu{
@@ -10,9 +86,21 @@ body{
   top:0;
   left:0;
   right:0;
-  height: 50px;
   background-color: black;
-  opacity: 0.98;
+  height: 50px;
+  opacity: 0.9;
+  position: fixed;
+  animation:menu-fadenum 0.8s;
+}
+
+@keyframes menu-fadenum {
+  0%{height: 0px;}
+  100%{height: 50px;}
+}
+
+@keyframes fadenum{
+   0%{opacity: 0.5;}
+   100%{opacity: 1;}
 }
 
 .m-text{
@@ -33,9 +121,9 @@ body{
   padding: 10px 17px;
   padding-top: 15px;
   font-weight: bold;
-  text-decoration:none;
+  text-decoration: none;
+  -webkit-transition: 0.5s;
   transition: 0.5s;
-  padding-bottom: 5px;
 }
 
 .menu-text:hover{
@@ -44,6 +132,7 @@ body{
   font-size: 18px;
   text-shadow: 5px 5px 15px white;
 }
+
 
 .company-name{
   display: inline-block;
@@ -67,4 +156,99 @@ body{
   font-size: 21px;
   transition: 0.5s;
   text-shadow: 5px 5px 15px white;
+}
+
+
+.copy-right{
+  padding: 20px,0;
+  height: 50px;
+  margin-bottom: 0;
+  background-color:#ECE5C7;
+}
+.right-text{
+  padding-top: 15px;
+  margin-bottom: 0;
+  color: #CABFAB;
+  font-size: 18px;
+  font-family: 'Abril Fatface', cursive;
+  margin-left: 500px;
+}
+
+
+.car-info{
+  margin-top: 80px;
+  margin-bottom: 30px;
+}
+
+.car-img{
+  margin-left: 350px;
+  transition: 0.5s;
+  animation:fadenum 2.5s;
+}
+
+/* .car-img:hover{
+  height: 150px;
+  width: 300px;
+} */
+
+.car-text{
+  margin-left: 370px;
+  font-family: serif;
+  color: #354259;
+  font-size: 20px;
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.car-text:hover{
+  font-size: 22px;
+}
+
+button{
+  display:inline;
+  width: 13%;
+  height: 5%;
+  padding: 12px 20px;
+  margin: 15px 100px;
+  /* margin-bottom: 20px; */
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #9A9B94;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Marcellus SC', serif;
+  font-weight: bold;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+button:hover{
+  background-color: #41444B;
+}
+
+button span{
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+button:hover span {
+  padding-right: 25px;
+}
+
+button:hover span:after {
+  opacity: 1;
+  right: 0;
 }

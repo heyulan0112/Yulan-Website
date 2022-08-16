@@ -2,8 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Welcome to rent page</title>
     <link rel="stylesheet" href="css/rent.css">
+    <title>Welcome to JasCar rent page</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
@@ -12,13 +12,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
   </head>
   <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <div id="start-img" class="first-img">
+      <img class="background-img"src="image/cx_mires2-hpbanner_1980x850.jpeg" alt="background">
+    </div>
     <div id="head" class="menu">
-      <a class="company-name" href="homepage.html">Jas Car</a>
+      <a class="company-name" href="homepage.html">JasCar</a>
       <div class="m-text">
         <a class="menu-text" href="about.html">About</a>
         <a class="menu-text" href="explore.html">Explore</a>
         <a class="menu-text" href="login.html">Sign in</a>
       </div>
+    </div>
+    <div>
+      <p class="start-text"> Explore Your Next Car </p>
+    </div>
+
+    <a class="topa" href="#start-img">
+      <div class="topb">
+        <p class="back-text">Back Top</p>
+      </div>
+    </a>
+
+    <script type="text/javascript">
+      $.ajax({
+        type: "POST",
+        url: '/getcar',
+        async: false,
+        success: function(res){
+          var pics = ["image/72-721371_bmw-m3-hd-png-download.png"];
+          $("body").append("<hr>");
+          for(var i = 0; i<res.length; i++){
+            $("body").append("<div id= 'car-info"+ String(i) +"' class='car-info'></div>");
+            $("#car-info"+String(i)).append("<img class='car-img' id='car-img"+ String(i) +"' width='370' height='180' src=" + pics[0] + " alt=''>");
+            $("#car-info"+String(i)).append("<button id='checkout' type='button' name='button' onclick='mycheckout()'><span>c h e c k o u t</span></button>");
+            $("#car-info"+String(i)).append("<p class='car-text' id='car-text"+ String(i) +"'>"+ res[i].make + "  " + res[i].model + "  " + res[i].year + "  " + res[i].vin + "  " + res[i].lic_plt_num + "  " + res[i].class + "</p>");
+            $("body").append("<div id= 'car-info"+ String(i) +"' class='car-info'></div>");
+            $("#car-info"+String(i)).append("<hr>");
+          }
+        }
+      });
+      function mycheckout(){
+        // go to rent this car
+      }
+
+    </script>
+    <div class="copy-right">
+      <p class = "right-text">©️2022 Yulan He @The Jas Car. All Rights Reserved.</p>
     </div>
   </body>
 </html>
