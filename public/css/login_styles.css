@@ -217,8 +217,16 @@ button:hover span:after {
 }
 
 .register-div{
-  display: block;
-  margin: 25px 160px;
+  display: inline-block;
+  margin-left:50px;
+  margin-top: 30px;
+  margin-right: 0px;
+}
+
+.employee-div{
+  display: inline;
+  margin-top: 30px;
+  margin-left: 20px;
 }
 
 .register-text{

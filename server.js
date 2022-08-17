@@ -113,6 +113,12 @@ const OngoingOrderSchema = new mongoose.Schema({
 
 const OngoingOrder = mongoose.model('OngoingOrder',OngoingOrderSchema);
 
+const EmployeeSchema = new mongoose.Schema({
+  employee_id: String,
+  password: String
+});
+const Employee = mongoose.model('Employee',EmployeeSchema,'Employees');
+
 // schema is template for all docs in this collection
 // create
 // const VehicleTypeSchema = new mongoose.Schema({
@@ -348,7 +354,7 @@ app.post("/checkout",function(req,res){
   Vehicle.updateOne({vin:vin},{available:"no"},function(err){
     if(err){
       console.log(err);
-      res.send("Sorry, fail to checkout!");
+      alert(err);
     }
     else{
       console.log("successfully update car to be not available.");
@@ -371,15 +377,47 @@ app.post("/checkout",function(req,res){
   order.save(function(err){
     if(err){
       console.log(err);
-      res.send("Sorry, fail to checkout!");
+      alert(err);
     }
     else{
       console.log("successfully insert on-going order.");
+      res.redirect("/register");
     }
   });
-  res.send("Successfully Checkout!");
 });
 
+app.get("/paymentSuccess.html",function(req,res){
+  res.sendFile(__dirname + "/paymentSuccess.html");
+});
+
+app.get("/employeeLogin.html",function(req,res){
+  res.sendFile(__dirname + "/employeeLogin.html");
+});
+
+app.get("/employee.html",function(req,res){
+  res.sendFile(__dirname + "/employee.html");
+});
+
+app.post("/staffLogin",function(req,res){
+  var employee_id = req.body.employeeid;
+  var password = req.body.password;
+  Employee.find({employee_id:employee_id, password:password},function(err,result){
+    if(err){
+      console.log(err);
+      res.send("Error!");
+    }
+    else{
+      if(result.length == 0){
+        console.log("Employee login information incorrect");
+        res.redirect('/employeeLogin.html');
+      }
+      else{
+        console.log("Employee login success!");
+        res.redirect('/employee.html');
+      }
+    }
+  });
+});
 
 app.post("/explore.html",function(req,res){
   Vehicle.find(function(err,result){

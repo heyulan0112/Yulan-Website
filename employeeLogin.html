@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Employee Login Page</title>
+    <link rel="stylesheet" href="css/employeeLogin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Marcellus+SC&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="head" class="menu">
+      <a class="company-name" href="homepage.html">Jas Car</a>
+    </div>
+    <div class="background-img">
+      <img class="img" src="image/24mag-callout-superJumbo.jpeg" alt="">
+    </div>
+    <div class="transparent-grid">
+
+    </div>
+    <div class="message-grid">
+      <h1 class="welcome-text">Login to Your Staff Account</h1>
+      <form action="/staffLogin" method="post">
+        <div class="input-grid">
+          <p class="inputbox">Employee ID*</p>
+          <input id="employeeid" class="input" type="text" name="employeeid" value="">
+        </div>
+        <div class="input-grid">
+          <p class="inputbox">Password*</p>
+          <input id="password" class="input" type="text" name="password" value="">
+        </div>
+        <button id="register" type="submit" name="button" onclick="window.location.href='register-success.html'"><span>l o g i n</span></button>
+      </form>
+      <div class="text-div">
+        <h4 class="message-text">©️2022 Yulan He @The Jas Car. All Rights Reserved.</h4>
+      </div>
+    </div>
+
+  </body>
+</html>
