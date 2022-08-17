@@ -419,6 +419,19 @@ app.post("/staffLogin",function(req,res){
   });
 });
 
+app.post("/employeeFindCar",function(req,res){
+  var vin = req.body.vin;
+  Vehicle.find({vin:vin},function(err,result){
+    if(err){
+      console.log(err);
+    }
+    else{
+      console.log("Query Success");
+      res.json(result);
+    }
+  });
+});
+
 app.post("/explore.html",function(req,res){
   Vehicle.find(function(err,result){
     if(err){

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/css/employee.css">
+    <title>Welcome to Employee Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Marcellus+SC&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <div id="head" class="menu">
+      <a class="company-name" href="homepage.html">Jas Car</a>
+      <div class="m-text">
+        <a class="menu-text" href="about.html">About</a>
+        <a class="menu-text" href="explore.html">Explore</a>
+        <a class="menu-text" href="login.html">Sign in</a>
+      </div>
+    </div>
+
+    <div class="body-div">
+      <div class="transparent">
+      </div>
+      <div class="query_div">
+        <p class="signin">Pick a car</p>
+          <p class="inputbox">Enter vin to find a car</p>
+          <input id="vin" class="input" type="text" name="vin" value="">
+          <button type="submit" name="button" onclick="myQuery()"><span>f i n d</span></button>
+      </div>
+      <div class="img-div">
+      </div>
+      <script type="text/javascript">
+        function myQuery(){
+          $.ajax({
+            type: "POST",
+            url: '/getcar',
+            async: false,
+            success: function(res){
+              var pics = ["image/72-721371_bmw-m3-hd-png-download.png"];
+              for(var i=0;i<res.length;i++){
+                if(res[i].vin == $("#vin").val()){
+                  $(".img-div").empty();
+                  $(".img-div").append("<p class='car-text' id='car-text"+ String(i) +"'>"+ res[i].make + "  " + res[i].model + "  " + res[i].year + "  " + res[i].vin + "  " + res[i].lic_plt_num + "  "
+                  + res[i].class + "</p>");
+                  $(".img-div").append("<img class='car-img' id='car-img"+ String(i) +"' width='370' height='180' src=" + pics[0] + " alt=''>");
+                  // $(".img-div").append("<p class='car-text'> Available Now? "+ res[i].available + "</p>");
+                }
+              }
+            }
+          });
+        }
+      </script>
+    </div>
+    <div class="copy-right">
+      <p class = "right-text">©️2022 Yulan He @The Jas Car. All Rights Reserved.</p>
+    </div>
+  </body>
+</html>
