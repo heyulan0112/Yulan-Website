@@ -100,7 +100,7 @@ const Vehicle = mongoose.model('Vehicle',VehicleSchema,'Vehicles');
 const OngoingOrderSchema = new mongoose.Schema({
   customer_id: Number,
   pickup_address: String,
-  pickup_date: Date,
+  pickup_date: String,
   vin: String,
   start_odometer: Number,
   daily_odometer: Number,
@@ -111,13 +111,44 @@ const OngoingOrderSchema = new mongoose.Schema({
   cvc: String
 });
 
-const OngoingOrder = mongoose.model('OngoingOrder',OngoingOrderSchema);
+const OngoingOrder = mongoose.model('OngoingOrder',OngoingOrderSchema,'ongoingorders');
 
 const EmployeeSchema = new mongoose.Schema({
   employee_id: String,
   password: String
 });
 const Employee = mongoose.model('Employee',EmployeeSchema,'Employees');
+
+const OrderSchema = new mongoose.Schema({
+  pickup_date: String,
+  dropoff_date: String,
+  start_odometer: Number,
+  end_odometer: Number,
+  daily_odometer: Number,
+  vin: String,
+  customer_id: Number
+});
+
+const Order = mongoose.model('Order',OrderSchema);
+
+const InvoiceSchema = new mongoose.Schema({
+  invoice_date: String,
+  invoice_amount: Number,
+  order: OrderSchema
+});
+
+const Invoice = mongoose.model('Invoice',InvoiceSchema);
+
+const PaymentSchema = new mongoose.Schema({
+  payment_method: String,
+  card_number: String,
+  card_holder: String,
+  expiry_date: Date,
+  cvc: String,
+  invoice: InvoiceSchema
+});
+
+const Payment = mongoose.model('Payment',PaymentSchema);
 
 // schema is template for all docs in this collection
 // create
@@ -346,6 +377,7 @@ app.post("/checkout",function(req,res){
   var expiry_date = req.body.expiry_date;
   var cvc = req.body.cvc;
   var date = new Date();
+  var pickup_date = String(date.getFullYear()) + "-" + String(date.getMonth()+1) + "-" + String(date.getDate());
   var customer_id = 1;
   var pickup_address = "Hundson Street Unit 203, Manhattan, NY, 11211";
   var start_odometer = 0;
@@ -364,7 +396,7 @@ app.post("/checkout",function(req,res){
   const order = new OngoingOrder({
     customer_id: customer_id,
     pickup_address: pickup_address,
-    pickup_date: date.getDate(),
+    pickup_date: pickup_date,
     vin: vin,
     start_odometer: start_odometer,
     daily_odometer: daily_odometer,
@@ -381,7 +413,7 @@ app.post("/checkout",function(req,res){
     }
     else{
       console.log("successfully insert on-going order.");
-      res.redirect("/register");
+      res.redirect('/paymentSuccess.html');
     }
   });
 });
@@ -428,6 +460,145 @@ app.post("/employeeFindCar",function(req,res){
     else{
       console.log("Query Success");
       res.json(result);
+    }
+  });
+});
+
+function getDaysBetween(startDate, enDate) {
+  const sDate = Date.parse(startDate)
+  const eDate = Date.parse(enDate)
+  if (sDate > eDate) {
+    return 0
+  }
+  if (sDate === eDate) {
+    return 1
+  }
+  const days = (eDate - sDate) / (1 * 24 * 60 * 60 * 1000)
+  return days
+}
+
+app.get('/returnSuccess.html',function(req, res){
+  res.sendFile(__dirname + "/returnSuccess.html");
+});
+
+app.post("/returncar",function(req,res){
+  var vin = req.body.vin;
+  var end_odometer = req.body.end_odometer;
+  var date = new Date();
+  var dropoff_date = String(date.getFullYear()) + "-" + String(date.getMonth()+1) + "-" + String(date.getDate());
+  Vehicle.updateOne({vin:vin},{available:"yes"},function(err){
+    if(err){
+      console.log(err);
+      res.end();
+    }
+    else{
+      console.log("update available success");
+    }
+  });
+
+  OngoingOrder.findOne({vin:vin},function(err,result){
+    if(err){
+      console.log(err);
+      // Actually it should rollback
+      res.end();
+    }
+    else{
+
+      if(result != null){
+        const order = new Order({
+          pickup_date: result.pickup_date,
+          dropoff_date: dropoff_date,
+          start_odometer: result.start_odometer,
+          end_odometer: parseFloat(end_odometer),
+          daily_odometer: result.daily_odometer,
+          vin: vin,
+          customer_id: result.customer_id
+        });
+
+        order.save(function(err){
+          if(err){
+            console.log(err);
+            res.end();
+          }
+          else{
+            console.log("Insert new finished order success.");
+          }
+        });
+
+        var days = getDaysBetween(result.pickup_date,dropoff_date);
+        var limitation = days * result.daily_odometer;
+        var total_o = parseFloat(end_odometer) - result.start_odometer;
+
+        if(total_o > limitation){
+          total_o = total_o - limitation;
+        }
+        else{
+          total_o = 0;
+        }
+
+        Vehicle.findOne({vin:vin},function(err,vehicle){
+          if(err){
+            console.log(err);
+          }
+          else{
+            console.log("vehicle:"+vehicle);
+            VehicleClass.findOne({class_name:vehicle.class},function(err,vclass){
+              console.log("vclass:"+vclass);
+              if(err){
+                console.log(err);
+              }
+              else{
+                // console.log("vclass:"+vehicle.class);
+                var over_mileage_fee = parseFloat(vclass.over_mileage_fee);
+                var rental_rate = parseFloat(vclass.rental_rate);
+                var amount = rental_rate * days + total_o * over_mileage_fee;
+                const invoice = new Invoice({
+                  invoice_date: dropoff_date,
+                  invoice_amount: amount,
+                  order: order
+                });
+
+                invoice.save(function(err){
+                  if(err){
+                    console.log(err);
+                  }
+                  else{
+                    console.log("Generate invoice success.");
+                  }
+                });
+
+                const payment = new Payment({
+                  payment_method: result.payment_method,
+                  card_number: result.card_number,
+                  card_holder: result.card_holder,
+                  expiry_date: result.expiry_date,
+                  cvc: result.cvc,
+                  invoice: invoice
+                });
+                payment.save(function(err){
+                  if(err){
+                    console.log(err);
+                  }
+                  else{
+                    console.log("Generate payment record success.");
+                  }
+                });
+
+                OngoingOrder.deleteOne({vin:vin},function(err){
+                  if(err){
+                    console.log(err);
+                    res.end();
+                  }
+                  else{
+                    console.log("Ongoing order delete success.");
+                    res.redirect('/returnSuccess.html');
+                  }
+                });
+              }
+            });
+          }
+        });
+      }
     }
   });
 });

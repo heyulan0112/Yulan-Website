@@ -26,14 +26,19 @@
       <div class="transparent">
       </div>
       <div class="query_div">
-        <p class="signin">Pick a car</p>
+          <p class="signin">Pick a car</p>
           <p class="inputbox">Enter vin to find a car</p>
           <input id="vin" class="input" type="text" name="vin" value="">
+          <p class="inputbox">Enter vehicle end odometer to return a car</p>
+          <input id="endodometer" class="input" type="text" name="endodometer" value="">
           <button type="submit" name="button" onclick="myQuery()"><span>f i n d</span></button>
+          <button type="submit" name="button" onclick="myReturn()"><span>r e t u r n</span></button>
+          <button type="submit" name="button" onclick="myEdit()"><span>e d i t</span></button>
       </div>
       <div class="img-div">
       </div>
       <script type="text/javascript">
+        // window.sessionStorage.setItem('curr_vin', "");
         function myQuery(){
           $.ajax({
             type: "POST",
@@ -43,6 +48,7 @@
               var pics = ["image/72-721371_bmw-m3-hd-png-download.png"];
               for(var i=0;i<res.length;i++){
                 if(res[i].vin == $("#vin").val()){
+                  window.sessionStorage.setItem('curr_vin', res[i].vin);
                   $(".img-div").empty();
                   $(".img-div").append("<p class='car-text' id='car-text"+ String(i) +"'>"+ res[i].make + "  " + res[i].model + "  " + res[i].year + "  " + res[i].vin + "  " + res[i].lic_plt_num + "  "
                   + res[i].class + "</p>");
@@ -53,6 +59,32 @@
             }
           });
         }
+
+        function myReturn(){
+          if($("#vin").val().length == 0 || $("#endodometer").val().length == 0){
+            alert("Please enter the car vin and car end odometer before returning a car.");
+            return;
+          }
+          $.ajax({
+            type: "POST",
+            url: '/returncar',
+            async: false,
+            data:{
+              vin: $('#vin').val(),
+              end_odometer: $('#endodometer').val()
+              // customer_id: $('#customerid').val()
+            },
+            dataType: "json",
+            success: function(res){
+
+            }
+          });
+        }
+
+        function myEdit(){
+
+        }
+
       </script>
     </div>
     <div class="copy-right">

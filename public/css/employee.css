@@ -23,7 +23,7 @@ hr{
 
 .transparent{
   display: inline;
-  margin-top: 120px;
+  margin-top: 50px;
   margin-left: 0px;
   margin-right: 0px;
   height: 550px;
@@ -36,9 +36,9 @@ hr{
 }
 
 .query_div{
-  border-right: 4px dashed #D6D5A8;
+  /* border-right: 4px dashed #D6D5A8; */
   display: inline-block;
-  margin-top: 120px;
+  margin-top: 50px;
   margin-left: 0px;
   margin-right: 0px;
   height: 440px;
@@ -256,7 +256,7 @@ button:hover span:after {
   padding: 20px,0;
   height: 80px;
   margin-bottom: 0;
-  /* background-color:#ECE5C7; */
+  background-color:#ECE5C7;
 }
 .right-text{
   text-align: center;
