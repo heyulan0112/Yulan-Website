@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to Vehicle Info Edit Page</title>
+    <link rel="stylesheet" href="/css/vehicleEdit.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Marcellus+SC&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <div id="head" class="menu">
+      <a class="company-name" href="homepage.html">Jas Car</a>
+    </div>
+    <div class="background-img">
+      <img class="img" src="image/24mag-callout-superJumbo.jpeg" alt="">
+    </div>
+    <div class="transparent-grid">
+
+    </div>
+    <div class="message-grid">
+      <h1 class="welcome-text"></h1>
+      <script type="text/javascript">
+        $(".welcome-text").text("vehicle vin: " + window.sessionStorage.getItem('curr_vin'));
+      </script>
+      <div class="input-grid">
+        <p class="inputbox">Edit Info*</p>
+        <select id="editinfo" class="input" name="editinfo">
+          <option>make</option>
+          <option>model</option>
+          <option>year</option>
+          <option>vehicle indentification</option>
+          <option>license plate number</option>
+          <option>vehicle class</option>
+          <option>available status</option>
+        </select>
+      </div>
+      <div class="input-grid">
+        <p class="inputbox">New Info*</p>
+        <input id="newinfo" class="input" type="text" name="newinfo" value="">
+      </div>
+      <button id="confirm" type="submit" name="button" onclick="myEdit()"><span>c o n f i r m</span></button>
+      <script type="text/javascript">
+        function myEdit(){
+          $.ajax({
+            type: "POST",
+            url: '/caredit',
+            async: false,
+            data:{
+              vin: window.sessionStorage.getItem('curr_vin'),
+              editinfo: $("#editinfo").val(),
+              newinfo: $("#newinfo").val()
+            },
+            dataType: "json",
+            success: function(res){
+              // alert(String(res));
+            }
+          });
+        }
+      </script>
+      <div class="text-div">
+        <h4 class="message-text">©️2022 Yulan He @The Jas Car. All Rights Reserved.</h4>
+      </div>
+    </div>
+  </body>
+</html>

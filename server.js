@@ -591,7 +591,7 @@ app.post("/returncar",function(req,res){
                   }
                   else{
                     console.log("Ongoing order delete success.");
-                    res.redirect('/returnSuccess.html');
+                    alert("Return Success.");
                   }
                 });
               }
@@ -601,6 +601,110 @@ app.post("/returncar",function(req,res){
       }
     }
   });
+  // res.redirect('/returnSuccess.html');
+});
+
+app.get("/vehicleEdit.html",function(req,res){
+  res.sendFile(__dirname + "/vehicleEdit.html");
+});
+
+app.post("/caredit",function(req,res){
+  var vin = req.body.vin;
+  var editinfo = req.body.editinfo;
+  var newinfo = req.body.newinfo;
+  if(editinfo == "make"){
+    Vehicle.updateOne({vin:vin},{make:newinfo},function(err){
+      if(err){
+        console.log(err);
+      }
+      else{
+        console.log("vehicle information update success.");
+        res.send("vehicle information update success.");
+        // alert("vehicle information update success.");
+      }
+      res.end();
+    });
+  }
+  else if(editinfo == "model"){
+    Vehicle.updateOne({vin:vin},{model:newinfo},function(err){
+      if(err){
+        console.log(err);
+      }
+      else{
+        console.log("vehicle information update success.");
+        res.send("vehicle information update success.");
+        // alert("vehicle information update success.");
+      }
+      res.end();
+    });
+  }
+  else if(editinfo == "year"){
+    Vehicle.updateOne({vin:vin},{year:newinfo},function(err){
+      if(err){
+        console.log(err);
+      }
+      else{
+        console.log("vehicle information update success.");
+        res.send("vehicle information update success.");
+        // alert("vehicle information update success.");
+      }
+      res.end();
+    });
+  }
+  else if(editinfo == "vehicle indentification"){
+    Vehicle.updateOne({vin:vin},{vin:newinfo},function(err){
+      if(err){
+        console.log(err);
+      }
+      else{
+        console.log("vehicle information update success.");
+        res.send("vehicle information update success.");
+        // alert("vehicle information update success.");
+      }
+      res.end();
+    });
+  }
+  else if(editinfo == "license plate number"){
+    Vehicle.updateOne({vin:vin},{lic_plt_num:newinfo},function(err){
+      if(err){
+        console.log(err);
+      }
+      else{
+        console.log("vehicle information update success.");
+        res.send("vehicle information update success.");
+        // alert("vehicle information update success.");
+      }
+      res.end();
+    });
+  }
+  else if(editinfo == "vehicle class"){
+    Vehicle.updateOne({vin:vin},{class:newinfo},function(err){
+      if(err){
+        console.log(err);
+      }
+      else{
+        console.log("vehicle information update success.");
+        res.send("vehicle information update success.");
+        // alert("vehicle information update success.");
+      }
+      res.end();
+    });
+  }
+  else if(editinfo == "available status"){
+    Vehicle.updateOne({vin:vin},{available:newinfo},function(err){
+      if(err){
+        console.log(err);
+      }
+      else{
+        console.log("vehicle information update success.");
+        res.send("vehicle information update success.");
+      }
+      res.end();
+    });
+  }
+  // console.log(vin);
+  // console.log(editinfo);
+  // console.log(newinfo);
 });
 
 app.post("/explore.html",function(req,res){

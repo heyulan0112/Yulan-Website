@@ -82,7 +82,9 @@
         }
 
         function myEdit(){
-
+          // Edit Car Information
+          window.sessionStorage.setItem('curr_vin',$("#vin").val());
+          window.location.href='vehicleEdit.html';
         }
 
       </script>
