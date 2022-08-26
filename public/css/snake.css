@@ -4,7 +4,7 @@ body{
 }
 
 .map {
-  top: 100px;
+  top: 150px;
   left: 280px;
   width: 800px;
   height: 500px;
@@ -36,7 +36,7 @@ body{
   display: inline-block;
   position: absolute;
   z-index: 1;
-  font-family: 'Berkshire Swash', cursive;
+  font-family: 'Silkscreen', cursive;
   font-weight: bolder;
   font-size: 20px;
   margin-top: 12px;
@@ -74,11 +74,11 @@ body{
 
 
 
-button{
-  width: 15%;
+.level-btn{
+  width: 17%;
   padding: 12px;
-  margin-top: 650px;
-  margin-left: 180px;
+  margin-top: 550px;
+  margin-left: 150px;
   margin-right: 10px;
   margin: bottom: 5px;
   /* margin: 50px 255px; */
@@ -88,26 +88,28 @@ button{
   border: none;
   color: white;
   text-align: center;
-  font-size: 18px;
-  font-family: 'Marcellus SC', serif;
+  font-size: 15px;
+  font-family: 'Silkscreen', cursive;
   font-weight: bold;
   transition: all 0.5s;
   cursor: pointer;
   z-index: 1;
 }
 
-button:hover{
+
+
+.level-btn:hover{
   background-color: #41444B;
 }
 
-button span{
+.level-btn span{
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
 
-button span:after {
+.level-btn span:after {
   content: '\00bb';
   position: absolute;
   opacity: 0;
@@ -116,13 +118,43 @@ button span:after {
   transition: 0.5s;
 }
 
-button:hover span {
+.level-btn:hover span {
   padding-right: 25px;
 }
 
-button:hover span:after {
+.level-btn:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.control-button{
+  margin-bottom: 0px;
+  margin-top: 30px;
+  height: 100px;
+  margin-left: 50px;
+}
+
+.control-btn{
+  display: inline-block;
+  margin-left: 90px;
+  margin-top: 50px;
+  width: 15%;
+  border-radius: 4px;
+  background-color: #9A9B94;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Silkscreen', cursive;
+  font-weight: bold;
+  transition: all 0.5s;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.control-btn:hover{
+  background-color: #7C3E66;
+
 }
 
 .check{
@@ -165,13 +197,11 @@ button:hover span:after {
 }
 
 .score-div{
-  display: inline;
-  left: 5px;
-  top:20px;
-  margin-left: 5px;
+  display: block;
+  margin-left: 620px;
   margin-right: 0px;
-  margin-bottom: 0px;
-  font-family: 'Marcellus SC', serif;
+  margin-bottom: 10px;
+  font-family: 'Silkscreen', cursive;
   color: #73777B;
 }
 

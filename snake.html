@@ -7,27 +7,30 @@
  <link rel="preconnect" href="https://fonts.googleapis.com">
  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
- <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
- <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Marcellus+SC&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
- <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Marcellus+SC&family=Silkscreen&display=swap" rel="stylesheet">
 </head>
 <body id="gamebody">
   <div id="head" class="menu">
     <a class="homepage" href="index.html">Yulan Homepage</a>
   </div>
+  <div class="control-button">
+    <button class="control-btn" id="up-btn" type="button" name="button">up</button>
+    <button class="control-btn" id="down-btn" type="button" name="button">down</button>
+    <button class="control-btn" id="left-btn" type="button" name="button">left</button>
+    <button class="control-btn" id="right-btn" type="button" name="button">right</button>
+  </div>
   <div id="map" class="map"></div>
   <script src="public/js/food.js"></script>
   <script src="public/js/snake.js"></script>
   <script src="public/js/game.js"></script>
-
-  <button id="startgame" type="submit" name="button" onclick="myEatSnake()"><span>start [easy level]</span></button>
-  <button id="startgame-mid" type="submit" name="button" onclick="myEatSnakeMid()"><span>start [mid level]</span></button>
-  <button id="startgame-hard" type="submit" name="button" onclick="myEatSnakeHard()"><span>start [hard level]</span></button>
+  <button class="level-btn" id="startgame" type="submit" name="button" onclick="myEatSnake()"><span>start [easy level]</span></button>
+  <button class="level-btn" id="startgame-mid" type="submit" name="button" onclick="myEatSnakeMid()"><span>start [mid level]</span></button>
+  <button class="level-btn" id="startgame-hard" type="submit" name="button" onclick="myEatSnakeHard()"><span>start [hard level]</span></button>
   <label id="check" class="check">
     <input id="checkid" class="checkboxx" onclick="myColor()" type="checkbox" name="">
     Switch to Dark Mode?
   </label>
-  <p id="guide" class="guide">Press ⬆️⬇️⬅️➡️ on your keyboard to control snake. If snake hits walls or eats itself then game over . </p>
+  <p id="guide" class="guide">Press ⬆️⬇️⬅️➡️ on your keyboard or button above to control snake. If snake hits walls or eats itself then game over</p>
   <div id="score-div" class="score-div">Your score: <span id="score" class="score">0</span></div>
   <script>
   function myEatSnake(){
@@ -78,7 +81,7 @@
   }
   </script>
   <div class="copy-right">
-    <p class = "right-text">©️2022 Yulan He @The Eat Snake. All Rights Reserved.</p>
+    <footer class = "right-text">©️2022 Yulan He @The Eat Snake. All Rights Reserved.</footer>
   </div>
 </body>
 </html>

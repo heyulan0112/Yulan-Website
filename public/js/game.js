@@ -57,6 +57,21 @@
    };
 
    Game.prototype.bindKey = function(){
+     document.addEventListener("click",function(e){
+       if(e.target.id == "left-btn" && this.snake.direction != "right"){
+         this.snake.direction = "left";
+       }
+       else if(e.target.id == "up-btn" && this.snake.direction != "down"){
+         this.snake.direction = "up";
+       }
+       else if(e.target.id == "right-btn" && this.snake.direction != "left"){
+         this.snake.direction = "right";
+       }
+       else if(e.target.id == "down-btn" && this.snake.direction != "up"){
+         this.snake.direction = "down";
+       }
+     }.bind(that),false);
+
      document.addEventListener("keydown",function(e){
        if(e.keyCode == 37 && this.snake.direction != "right"){
          this.snake.direction = "left";
