@@ -483,7 +483,6 @@ window.onload = function() {
 
         if (showcluster) {
             renderCluster(cluster, 255, 128, 128);
-
             for (var i=0; i<floatingclusters.length; i++) {
                 var col = Math.floor(100 + 100 * i / floatingclusters.length);
                 renderCluster(floatingclusters[i], col, col, col);

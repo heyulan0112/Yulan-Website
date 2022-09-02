@@ -1,7 +1,8 @@
 body{
    /* background-color: black; */
-  background: linear-gradient(to top right,#ECE5C7, 20%, white);
   margin: 0;
+  background-color: #615d5d;
+  background-image: url("https://www.transparenttextures.com/patterns/escheresque.png");
 }
 
 hr{
@@ -28,9 +29,9 @@ hr{
   margin-right: 0px;
   height: 550px;
   width: 520px;
-  background-color: #E9E9E5;
-  opacity: 0.5;
-  /* background-color: #D4D6C8; */
+  /* background-color: #E9E9E5; */
+  opacity: 0.2;
+  background-color: #ECE5C7;
   box-shadow:5px 5px 10px #909090;
   z-index: -1;
 }
@@ -43,7 +44,7 @@ hr{
   height: 550px;
   width: 520px;
   background-color: #D4D6C8;
-  /* background-color: #D4D6C8; */
+  /* background-color: # ; */
   box-shadow:5px 5px 10px #909090;
   border-radius: 4px;
   z-index: 0;

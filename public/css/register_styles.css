@@ -1,6 +1,7 @@
 body{
-  background: linear-gradient(#FDF6EC, 50%, white);
+  background-color: #f5f2e2 ;
   margin: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/cartographer.png");
 }
 
 .menu{
@@ -81,13 +82,13 @@ body{
   font-family: 'Berkshire Swash', cursive;
   font-weight: bold;
   font-size: 50px;
-  color: #4d602a;
+  color: #ECE5C7;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   margin-left: 490px;
   margin-bottom: 50px;
   margin-top: 150px;
-  animation:fadenum 2s;
+  animation:fadenum 1s;
   text-shadow: 8px 8px 15px #909090;
 }
 
