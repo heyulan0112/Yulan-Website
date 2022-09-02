@@ -95,7 +95,7 @@ window.onload = function() {
     }
 
     function init() {
-        images = loadImages(["public/image/bts-bubble.png"]);
+        images = loadImages(["image/bts-bubble.png"]);
         bubbleimage = images[0];
         map.addEventListener("mousemove", onMouseMove);
         map.addEventListener("mousedown", onMouseDown);
