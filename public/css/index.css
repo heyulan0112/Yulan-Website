@@ -2,6 +2,8 @@ html{
   scroll-behavior: smooth;
 }
 body{
+  background: #F5F5F5;
+  background-image: url("https://www.transparenttextures.com/patterns/skulls.png");
   margin: 0;
 }
 
@@ -41,7 +43,7 @@ hr{
   left:0;
   right:0; */
   height: 150px;
-  background-color: white;
+  /* background-color: white; */
   opacity: 0.98;
   /* position: fixed; */
 }
@@ -85,6 +87,7 @@ hr{
   background-color: #F6E6E4;
   margin-top: 30px;
   margin-left: 45px;
+  border-radius: 20px;
 }
 
 .img{
@@ -257,7 +260,7 @@ hr{
 
 .copy-right{
   padding: 20px,0;
-  height: 80px;
+  height: 60px;
   margin-top: 0px;
   margin-bottom: 0;
   bottom: 0px;
@@ -265,9 +268,10 @@ hr{
 }
 .right-text{
   text-align: center;
-  padding-top: 30px;
+  padding-top: 20px;
   margin-bottom: 0;
   color: #F6E6E4;
+  height: 30px;;
   font-size: 18px;
   font-family: 'Abril Fatface', cursive;
 }

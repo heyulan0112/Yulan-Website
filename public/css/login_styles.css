@@ -1,8 +1,11 @@
 body{
-   /* background-color: black; */
   margin: 0;
-  background-color: #615d5d;
-  background-image: url("https://www.transparenttextures.com/patterns/escheresque.png");
+  background-color: #2C3333;
+  background-image: url("https://www.transparenttextures.com/patterns/polonez-pattern.png");
+  /* background-repeat: repeat-x; */
+  background-position: 0px 220px;
+  /* background-size: auto 500px; */
+  background-repeat:repeat-x;
 }
 
 hr{
@@ -17,26 +20,25 @@ hr{
   margin-left: 200px;
 }
 
-.body-div{
+/* .body-div{
   display: inline-block;
   margin-bottom: 50px;
-}
+} */
 
-.transparent{
+/* .transparent{
   display: inline;
   margin-top: 120px;
   margin-left: 100px;
   margin-right: 0px;
   height: 550px;
   width: 520px;
-  /* background-color: #E9E9E5; */
   opacity: 0.2;
   background-color: #ECE5C7;
   box-shadow:5px 5px 10px #909090;
   z-index: -1;
-}
+} */
 
-.login_div{
+/* .login_div{
   display: inline-block;
   margin-top: 120px;
   margin-left: 80px;
@@ -44,7 +46,6 @@ hr{
   height: 550px;
   width: 520px;
   background-color: #D4D6C8;
-  /* background-color: # ; */
   box-shadow:5px 5px 10px #909090;
   border-radius: 4px;
   z-index: 0;
@@ -55,10 +56,10 @@ hr{
    opacity: 0.9;
    z-index: 1;
    margin-left: 0px;
-}
+} */
 
 
-.signin{
+/* .signin{
   font-family: 'Berkshire Swash', cursive;
   font-weight: bold;
   font-size: 60px;
@@ -68,7 +69,7 @@ hr{
   margin-left: 160px;
   margin-bottom: 50px;
   text-shadow: 8px 8px 15px white;
-}
+} */
 
 .menu{
   display: inline;
@@ -78,7 +79,7 @@ hr{
   left:0;
   right:0;
   height: 50px;
-  background-color: black;
+  /* background-color: black; */
   opacity: 0.98;
 }
 
@@ -136,15 +137,74 @@ hr{
   text-shadow: 5px 5px 15px white;
 }
 
+.background-img{
+  display: inline;
+  position: relative;
+  z-index: -1;
+  animation:fadenum 2s;
+  overflow: hidden;
+  filter: blur(2.5px);
+}
+
+.img{
+  height: 700.5px;
+  width: 1426.5px;
+}
+
+.message-grid{
+  display: inline;
+  position: absolute;
+  /* z-index: -1; */
+  left : 0;
+  top : 120px;
+  bottom: 0;
+  height:400px;
+  width:800px;
+}
+
+.transparent-grid{
+  background-color: #D4D6C8;
+  display: inline;
+  position: absolute;
+  left: 270px;
+  top: 100px;
+  bottom: 0;
+  height:550px;
+  width:900px;
+  opacity: 0.8;
+  z-index: 0;
+  border-radius: 10px;
+  transition: 0.5s;
+  box-shadow: 8px 8px 15px #909090;
+}
+
+.welcome-text{
+  text-align: center;
+  font-size: 40px;
+  font-family: 'Berkshire Swash', cursive;
+  color: #354259;
+  text-shadow: 5px 5px 15px #FFE3A9;
+  padding-left: 530px;
+  width:400px;
+}
+
 .input{
-  width: 60%;
-  padding: 12px 20px;
-  margin: 8px 100px;
+  z-index: 1;
+  width: 35%;
+  padding: 12px;
+  padding-top: 8px;
+  margin: 8px 255px;
   box-sizing: border-box;
-  border: 3px solid #ccc;
+  /* border: 3px solid #FEF5ED; */
+  border: none;
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
+  opacity: 1;
+  font-size: 18px;
+  font-family:serif;
+  color: #9A9B94;
+  display: block;
   border-radius: 4px;
 }
 
@@ -157,24 +217,37 @@ hr{
 }
 
 .inputbox{
-  font-family: serif;
+  z-index: 1;
+  font-family: 'Marcellus SC', serif;
   color: #73777B;
   font-weight: bolder;
-  margin-left: 100px;
+  opacity: 1;
+  display: inline;
+  margin-left: 255px;
+  radius:25px;
 }
 
-#password-box{
+#password{
   -webkit-text-security: disc;
   -moz-text-security: disc;
   text-security: disc;
 }
 
+.input-grid{
+  margin-left: 330px;
+  margin-top: 50px;
+  width: 800px;
+  opacity: 1;
+  z-index: 1;
+}
+
 button{
   display:block;
-  width: 60%;
-  padding: 12px 20px;
-  margin: 15px 100px;
-  margin-bottom: 0px;
+  width: 35%;
+  padding: 12px;
+  margin: 20px 300px;
+  margin-left: 585px;
+  margin-top: 30px;
   display: inline-block;
   border-radius: 4px;
   background-color: #9A9B94;
@@ -186,10 +259,11 @@ button{
   font-weight: bold;
   transition: all 0.5s;
   cursor: pointer;
+  z-index: 1;
 }
 
 button:hover{
-  background-color: #41444B;
+  background-color: #354259;
 }
 
 button span{
@@ -218,16 +292,17 @@ button:hover span:after {
 }
 
 .register-div{
-  display: inline-block;
-  margin-left:50px;
-  margin-top: 30px;
-  margin-right: 0px;
+  /* display: inline-block; */
+  margin-left:620px;
+  margin-top: 20px;
+  /* margin-right: 0px; */
 }
 
 .employee-div{
-  display: inline;
-  margin-top: 30px;
-  margin-left: 20px;
+  /* display: inline; */
+  margin-top: 20px;
+  margin-left: 620px;
+  width: 300px;
 }
 
 .register-text{
@@ -251,6 +326,15 @@ button:hover span:after {
   text-shadow: 5px 5px 15px #909090;
 }
 
+.message-text{
+  margin-left: 550px;
+  margin-top: 60px;
+  color: #9A9B94;
+  font-family: serif;
+  font-size: 15px;
+  width: 400px;
+}
+/*
 .copy-right{
   padding: 20px,0;
   height: 80px;
@@ -264,4 +348,4 @@ button:hover span:after {
   color: #CABFAB;
   font-size: 18px;
   font-family: 'Abril Fatface', cursive;
-}
+} */

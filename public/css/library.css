@@ -1,0 +1,82 @@
+body{
+  background: #2C3333;
+  margin: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+}
+
+h1{
+  display: inline-block;
+  margin-left: 110px;
+  margin-top: 100px;
+  margin-bottom: 20px;
+  width: 300px;
+  color: #F5F5F5;
+}
+
+.menu{
+  display: inline;
+  position: absolute;
+  z-index: 1;
+  top:0;
+  left:0;
+  right:0;
+  height: 50px;
+  background-color: #395B64;
+  opacity: 0.98;
+  animation:menu-fadenum 0.8s;
+  position: fixed;
+  opacity: 0.98;
+}
+
+.homepage{
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+  font-family: 'Abril Fatface', cursive;
+  font-weight: bolder;
+  font-size: 20px;
+  margin-top: 12px;
+  margin-left: 25px;
+  color: #E7F6F2;
+  left:10px;
+  text-decoration: none;
+  transition: 0.5s;
+  padding-bottom: 10px;
+}
+
+.homepage:hover{
+  color: #FFE3A9;
+  opacity: 1;
+  font-size: 21px;
+  transition: 0.5s;
+  text-shadow: 5px 5px 15px white;
+}
+
+.video-box{
+  display: inline-block;
+  margin-left: 80px;
+  margin-top: 60px;
+  /* margin-bottom: 100px; */
+}
+
+.copy-right{
+  position: absolute;
+  /* text-align: center; */
+  bottom: 0;
+  width: 100%;
+  padding: 20px,0;
+  height: 60px;
+  /* margin-top: 0px; */
+  margin-bottom: 0px;
+  background-color:#A5C9CA;
+}
+.right-text{
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  color: #E7F6F2;
+  font-size: 18px;
+  font-family: 'Abril Fatface', cursive;
+}

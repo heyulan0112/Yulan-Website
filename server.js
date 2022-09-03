@@ -27,6 +27,11 @@ app.get("/hellobubble.html",function(req,res){
   res.sendFile(__dirname + "/hellobubble.html");
 });
 
+// LiBrain Display page
+app.get("/library.html", function(req,res){
+  res.sendFile(__dirname + "/library.html");
+});
+
 // let connectInfo = mysql.createConnection({
 //   host:'localhost',
 //   port: 3306,
