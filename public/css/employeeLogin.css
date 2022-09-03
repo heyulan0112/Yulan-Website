@@ -93,7 +93,6 @@ body{
   box-shadow: 8px 8px 15px #909090;
 }
 
-
 .text-div{
   margin: 50px 0px;
   z-index: 1;
@@ -103,7 +102,7 @@ body{
 .welcome-text{
   text-align: center;
   font-size: 40px;
-  font-family: 'Berkshire Swash', cursive;
+  font-family: 'Marcellus SC', serif;
   color: #354259;
   text-shadow: 5px 5px 15px #FFE3A9;
   padding-left: 530px;

@@ -40,11 +40,23 @@
         url: '/getcar',
         async: false,
         success: function(res){
-          var pics = ["image/72-721371_bmw-m3-hd-png-download.png"];
+          var pics = ["image/2a5c29cc-9642-4adb-a829-8b26a331abed.webp","image/2019_56.webp","image/2021-Ford-Bronco.png","image/2018-Porsche-Cayenne-S.png","image/2020_76.webp",
+        "image/2019-toyota-avalon-hybrid-xle-sedan-angular-front.webp","image/ferrari-f8-tributo.jpeg","image/549-5490364_tesla-model-x-tesla-model-x-60d.png","image/2018MBCAU0003_640_01.webp","image/Audi-Q5-PNG-Isolated-File.png",
+      "image/2019-tesla-model-3-long-range-4wd-sedan-angular-front.webp","image/corolla.webp"];
           for(var i = 0; i<res.length; i++){
             $("body").append("<div id= 'car-info"+ String(i) +"' class='car-info'></div>");
-            $("#car-info"+String(i)).append("<img class='car-img' id='car-img"+ String(i) +"' width='200' height='100' src=" + pics[0] + " alt=''>");
-            $("#car-info"+String(i)).append("<p class='car-text' id='car-text"+ String(i) +"'>"+ res[i].make + "  " + res[i].model + "  " + res[i].year + "  " + res[i].vin + "  " + res[i].lic_plt_num + "  " + res[i].class + "</p>");
+            $("#car-info"+String(i)).append("<img class='car-img' id='car-img"+ String(i) +"' width='200' height='130' src=" + pics[i] + " alt=''>");
+            $("#car-info"+String(i)).append("<div class='car-text' id='car-card"+ String(i) + "'></div>");
+            // $("#car-info"+String(i)).append("<p class='car-t' id='car-text"+ String(i) +"'> Make:"+ res[i].make + "  Model:" + res[i].model + "  Factory Date" + res[i].year.substr(0,10) + "  Vehicle Indentification Number" + res[i].vin + "  License Plate Number" + res[i].lic_plt_num + "  Class" + res[i].class + "</p>");
+            $("#car-card"+String(i)).append("<p class='car-t' id='car-text"+ String(i) +"'> Model:"+ res[i].model +  "</p>");
+            // $("#car-card"+String(i)).append("<br>");
+            $("#car-card"+String(i)).append("<p class='car-t' id='car-text"+ String(i) +"'> Factory Date:"+ res[i].year.substr(0,10) +  "</p>");
+            // $("#car-card"+String(i)).append("<br>");
+            $("#car-card"+String(i)).append("<p class='car-t' id='car-text"+ String(i) +"'> Vehicle Indentification Number:"+ res[i].vin +  "</p>");
+            // $("#car-card"+String(i)).append("<br>");
+            $("#car-card"+String(i)).append("<p class='car-t' id='car-text"+ String(i) +"'> License Plate Number:"+ res[i].lic_plt_num +  "</p>");
+            // $("#car-card"+String(i)).append("<br>");
+            $("#car-card"+String(i)).append("<p class='car-t' id='car-text"+ String(i) +"'> Class:"+ res[i].class +  "</p>");
           }
         }
       });

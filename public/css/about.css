@@ -246,13 +246,15 @@ hr{
 }
 
 .copy-right{
+  width: 100%;
   padding: 20px,0;
-  height: 80px;
+  height: 60px;
   margin-bottom: 0;
   background-color:#ECE5C7;
 }
+
 .right-text{
-  padding-top: 30px;
+  padding-top: 20px;
   margin-bottom: 0;
   color: #CABFAB;
   font-size: 18px;

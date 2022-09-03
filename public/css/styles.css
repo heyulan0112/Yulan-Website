@@ -277,13 +277,16 @@ nav:hover {
 }
 
 .copy-right{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   padding: 20px,0;
-  height: 50px;
+  height: 60px;
   margin-bottom: 0;
   background-color:#ECE5C7;
 }
 .right-text{
-  padding-top: 15px;
+  padding-top: 18px;
   margin-bottom: 0;
   color: #CABFAB;
   font-size: 18px;

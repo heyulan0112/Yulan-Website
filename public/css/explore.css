@@ -4,6 +4,7 @@ html{
 
 body{
   margin: 0;
+  background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
 }
 
 .first-img{
@@ -164,27 +165,56 @@ body{
 
 
 .car-info{
+  /* text-align: center; */
+  width: 60%;
+  height: 250px;
+  margin-left: 280px;
   margin-top: 80px;
   margin-bottom: 30px;
+  background-image: url("https://www.transparenttextures.com/patterns/padded-light.png");
+  border-radius: 10px;
+  border: 8px #2C3333 solid;
 }
 
 .car-img{
-  margin-left: 600px;
+  margin-left: 100px;
+  margin-top: 20px;
   transition: 0.5s;
+  border-radius: 200px;
+  /* border: 3px #ECE5C7 solid; */
 }
 
-.car-img:hover{
+/* .car-img:hover{
   height: 150px;
   width: 300px;
-}
+} */
 
 .car-text{
-  margin-left: 320px;
+  display: inline-block;
+  width: 200px;
+  margin-left: 50px;
+  /* display: inline-block;
+  margin-left: 10px;
+  font-family: serif;
+  color: #354259;
+  font-size: 20px;
+  font-weight: bold;
+  transition: 0.5s; */
+}
+
+.car-t{
+  /* display: inline; */
+  text-align: left;
+  margin-left: 10px;
+  margin-top: 20px;
   font-family: serif;
   color: #354259;
   font-size: 20px;
   font-weight: bold;
   transition: 0.5s;
+  width: 400px;
+  /* height: 400px; */
+  /* width: 100%; */
 }
 
 .car-text:hover{
