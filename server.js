@@ -7,6 +7,8 @@ const mysql = require("mysql");
 var router  = express.Router();
 const app = express();
 app.use(express.static("public"));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: false}));
 
 // Personal Web Page
 app.get("/",function(req,res){
@@ -155,6 +157,35 @@ const PaymentSchema = new mongoose.Schema({
 
 const Payment = mongoose.model('Payment',PaymentSchema);
 
+const CustomerSchema = new mongoose.Schema({
+  user: {
+    type: String,
+    required: [true, "no username"]
+  },
+  pwd: {
+    type: String,
+    required: [true, "no password"]
+  },
+  email: String,
+  phone: String,
+  fname: String,
+  lname: String,
+  mname: String,
+  license: String,
+  insurence: String,
+  policy: String,
+  cooperate: String,
+  registerid: String,
+  employeeid: String,
+  country: String,
+  state: String,
+  city: String,
+  street: String,
+  unit: String,
+  zipcode: String
+});
+
+const Customer = mongoose.model('Customer',CustomerSchema);
 // schema is template for all docs in this collection
 // create
 // const VehicleTypeSchema = new mongoose.Schema({
@@ -317,6 +348,107 @@ app.get("/login.html",function(req,res){
   res.sendFile(__dirname + "/login.html");
 });
 
+app.post("/customerregist",function(req,res){
+  const username = req.body.username;
+  const password = req.body.password;
+  const firstname = req.body.firstname;
+  const lastname = req.body.lastname;
+  const middlename = req.body.middlename;
+  const license = req.body.license;
+  const insurence = req.body.insurence;
+  const insurencenumber = req.body.insurencenumber;
+  const email = req.body.email;
+  const phone = req.body.phonenumber;
+
+  const cooperatename = req.body.cooperatename;
+  const registernumber = req.body.registernumber;
+  const employeeid = req.body.employeeid;
+  const country = req.body.country;
+  const state = req.body.state;
+  const city = req.body.city;
+  const street = req.body.street;
+  const unit = req.body.unit;
+  const zipcode = req.body.zipcode;
+  const passwordconfirm = req.body.passwordconfirm;
+
+  if(password != passwordconfirm){
+    console.log("Please Check Your Password and Password Confirm again.");
+    // console.log(res.);
+    res.end();
+    // res.send(false);
+    // alert("Please Check Your Password and Password Confirm again.");
+  }
+  else{
+    const customer = new Customer({
+      user: username,
+      pwd: password,
+      email: email,
+      phone: phone,
+      fname: firstname,
+      lname: lastname,
+      mname: middlename,
+      license: license,
+      insurence:insurence,
+      policy: insurencenumber,
+      cooperate: cooperatename,
+      registerid: registernumber,
+      employeeid: employeeid,
+      country: country,
+      state: state,
+      city: city,
+      street: street,
+      unit: unit,
+      zipcode: zipcode
+    });
+
+    customer.save(function(err){
+      if(err){
+        console.log(err);
+      }
+      else{
+        console.log("customer register success");
+      }
+    });
+  }
+  // console.log("server" + res);
+  if(res.statusCode === 200){
+    res.redirect("/register");
+  }
+  else{
+    alert("Please Check Your Information Again.");
+  }
+});
+
+app.post("/customerlogin",function(req,res){
+  const username = req.body.username;
+  const password = req.body.password;
+  Customer.find(function(err, results){
+    if(err){
+      console.log(err);
+    }
+    else{
+      var flag = false;
+      results.forEach(function(c){
+        if(c.user === username && c.pwd === password){
+          flag = true;
+        }
+      });
+      // console.log(flag);
+      if(flag = true){
+        // console.log("t");
+        res.redirect("/rent.html");
+        // res.end();
+      }
+
+      else{
+        // console.log("f");
+        res.redirect("/login.html");
+        // res.end();
+      }
+    }
+  });
+});
+
 app.post("/login.html",function(req,res){
   const username = req.body.username;
   const password = req.body.password;
@@ -370,8 +502,6 @@ app.get("/payment.html",function(req,res){
   res.sendFile(__dirname + "/payment.html");
 });
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: false}));
 
 app.post("/checkout",function(req,res){
   // var username = req.body.username;
@@ -736,6 +866,11 @@ app.get("/register.html",function(req,res){
 app.get("/register",function(req,res){
   res.sendFile(__dirname + "/register-success.html");
 });
+
+app.get("/register-success.html",function(req,res){
+  res.sendFile(__dirname + "/register-success.html");
+});
+
 
 app.post("/register.html",function(req,res){
   const username = req.body.username;

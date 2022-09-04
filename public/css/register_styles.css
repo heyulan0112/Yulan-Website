@@ -157,13 +157,13 @@ hr{
   radius:25px;
 }
 
-#password-box1:focus{
+#password-box1{
   -webkit-text-security: disc;
   -moz-text-security: disc;
   text-security: disc;
 }
 
-#password-box2:focus{
+#password-box2{
   -webkit-text-security: disc;
   -moz-text-security: disc;
   text-security: disc;

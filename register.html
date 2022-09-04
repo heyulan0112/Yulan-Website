@@ -13,6 +13,7 @@
     <!-- <script type='text/javascript' src='js/server.js'></script> -->
   </head>
   <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <div id="head" class="menu">
       <a class="company-name" href="homepage.html">Jas Car</a>
       <div class="m-text">
@@ -30,107 +31,153 @@
       <br>
       <br>
       <br>
-      <form action="/register.html" method="post">
-        <div class="input-grid">
-          <p class="inputbox">User Name*</p>
-          <input class="input" type="text" name="username" value="">
-        </div>
-        <div class="input-grid">
-          <p class="inputbox">Password*</p>
-          <input id="password-box1"  class="input" type="text" name="password" value="">
-        </div>
-        <div class="input-grid">
-          <p class="inputbox">Password Confirmation*</p>
-          <input id="password-box2" class="input" type="text" name="passwordconfirm" value="">
-        </div>
+      <div class="input-grid">
+        <p class="inputbox">User Name*</p>
+        <input id="username" class="input" type="text" name="username" value="">
+      </div>
+      <div class="input-grid">
+        <p class="inputbox">Password*</p>
+        <input id="password-box1"  class="input" type="text" name="password" value="">
+      </div>
+      <div class="input-grid">
+        <p class="inputbox">Password Confirmation*</p>
+        <input id="password-box2" class="input" type="text" name="passwordconfirm" value="">
+      </div>
 
-        <div class="input-grid">
-          <p class="inputbox">Email*</p>
-          <input id="email" class="input" type="text" name="email" value="">
-        </div>
+      <div class="input-grid">
+        <p class="inputbox">Email*</p>
+        <input id="email" class="input" type="text" name="email" value="">
+      </div>
 
-        <div class="input-grid">
-          <p class="inputbox">Phone Number*</p>
-          <input id="phonenumber" class="input" type="text" name="phonenumber" value="">
-        </div>
+      <div class="input-grid">
+        <p class="inputbox">Phone Number*</p>
+        <input id="phonenumber" class="input" type="text" name="phonenumber" value="">
+      </div>
 
-        <label class="check">
-          <input id="checkid" class="checkboxx" onclick="mycheckbox()" type="checkbox" name="">
-          Is Cooperate Customer?
-        </label>
+      <label class="check">
+        <input id="checkid" class="checkboxx" onclick="mycheckbox()" type="checkbox" name="">
+        Is Cooperate Customer?
+      </label>
 
-        <div class="input-grid">
-          <p class="inputbox">First Name*</p>
-          <input id="firstname" class="input" type="text" name="firstname" value="">
-        </div>
-        <div class="input-grid">
-          <p class="inputbox">Last Name*</p>
-          <input id="lastname" class="input" type="text" name="lastname" value="">
-        </div>
-        <div class="input-grid">
-          <p class="inputbox">Middle Name(optional)</p>
-          <input id="middlename" class="input" type="text" name="middlename" value="">
-        </div>
-        <div class="input-grid">
-          <p class="inputbox">Driver License Number*</p>
-          <input id="license" class="input" type="text" name="license" value="">
-        </div>
-        <div class="input-grid">
-          <p class="inputbox">Auto Insurance Company Name*</p>
-          <input id="insurence" class="input" type="text" name="insurence" value="">
-        </div>
-        <div class="input-grid">
-          <p class="inputbox">Auto Insurance Policy Number*</p>
-          <input id="insurencenumber" class="input" type="text" name="insurencenumber" value="">
-        </div>
+      <div class="input-grid">
+        <p class="inputbox">First Name*</p>
+        <input id="firstname" class="input" type="text" name="firstname" value="">
+      </div>
+      <div class="input-grid">
+        <p class="inputbox">Last Name*</p>
+        <input id="lastname" class="input" type="text" name="lastname" value="">
+      </div>
+      <div class="input-grid">
+        <p class="inputbox">Middle Name(optional)</p>
+        <input id="middlename" class="input" type="text" name="middlename" value="">
+      </div>
+      <div class="input-grid">
+        <p class="inputbox">Driver License Number*</p>
+        <input id="license" class="input" type="text" name="license" value="">
+      </div>
+      <div class="input-grid">
+        <p class="inputbox">Auto Insurance Company Name*</p>
+        <input id="insurence" class="input" type="text" name="insurence" value="">
+      </div>
+      <div class="input-grid">
+        <p class="inputbox">Auto Insurance Policy Number*</p>
+        <input id="insurencenumber" class="input" type="text" name="insurencenumber" value="">
+      </div>
 
-        <div class="input-grid">
-          <p class="inputbox">Cooperate Name*</p>
-          <input id="cooperatename" class="input" type="text" name="cooperatename" value="">
-        </div>
+      <div class="input-grid">
+        <p class="inputbox">Cooperate Name*</p>
+        <input id="cooperatename" class="input" type="text" name="cooperatename" value="">
+      </div>
 
-        <div class="input-grid">
-          <p class="inputbox">Cooperate Register Number*</p>
-          <input id="registernumber" class="input" type="text" name="registernumber" value="">
-        </div>
+      <div class="input-grid">
+        <p class="inputbox">Cooperate Register Number*</p>
+        <input id="registernumber" class="input" type="text" name="registernumber" value="">
+      </div>
 
-        <div class="input-grid">
-          <p class="inputbox">Employee ID*</p>
-          <input id="employeeid" class="input" type="text" name="employeeid" value="">
-        </div>
+      <div class="input-grid">
+        <p class="inputbox">Employee ID*</p>
+        <input id="employeeid" class="input" type="text" name="employeeid" value="">
+      </div>
 
-        <div class="input-grid">
-          <p class="inputbox">Country*</p>
-          <input id="country" class="input" type="text" name="country" value="">
-        </div>
+      <div class="input-grid">
+        <p class="inputbox">Country*</p>
+        <input id="country" class="input" type="text" name="country" value="">
+      </div>
 
-        <div class="input-grid">
-          <p class="inputbox">State*</p>
-          <input id="state" class="input" type="text" name="state" value="">
-        </div>
+      <div class="input-grid">
+        <p class="inputbox">State*</p>
+        <input id="state" class="input" type="text" name="state" value="">
+      </div>
 
-        <div class="input-grid">
-          <p class="inputbox">City*</p>
-          <input id="city" class="input" type="text" name="city" value="">
-        </div>
+      <div class="input-grid">
+        <p class="inputbox">City*</p>
+        <input id="city" class="input" type="text" name="city" value="">
+      </div>
 
-        <div class="input-grid">
-          <p class="inputbox">Street*</p>
-          <input id="street" class="input" type="text" name="street" value="">
-        </div>
+      <div class="input-grid">
+        <p class="inputbox">Street*</p>
+        <input id="street" class="input" type="text" name="street" value="">
+      </div>
 
-        <div class="input-grid">
-          <p class="inputbox">Unit</p>
-          <input id="unit" class="input" type="text" name="unit" value="">
-        </div>
+      <div class="input-grid">
+        <p class="inputbox">Unit</p>
+        <input id="unit" class="input" type="text" name="unit" value="">
+      </div>
 
-        <div class="input-grid">
-          <p class="inputbox">Zipcode*</p>
-          <input id="zipcode" class="input" type="text" name="zipcode" value="">
-        </div>
+      <div class="input-grid">
+        <p class="inputbox">Zipcode*</p>
+        <input id="zipcode" class="input" type="text" name="zipcode" value="">
+      </div>
 
-        <button id="register" type="submit" name="button" onclick="window.location.href='register-success.html'"><span>r e g i s t e r</span></button>
-      </form>
+      <button id="register" type="submit" name="button" onclick="myRegister()"><span>r e g i s t e r</span></button>
+      <script type="text/javascript">
+      function myRegister(){
+        $.ajax({
+          type: 'POST',
+          url: '/customerregist',
+          // async: false,
+          data: {
+            username: $("#username").val(),
+            password: $("#password-box1").val(),
+            firstname: $("#firstname").val(),
+            lastname: $("#lastname").val(),
+            middlename: $("#middlename").val(),
+            license: $("#license").val(),
+            insurence: $("#insurence").val(),
+            insurencenumber: $("#insurencenumber").val(),
+            email: $("#email").val(),
+            phonenumber: $("#phonenumber").val(),
+            cooperatename: $("#cooperatename").val(),
+            registernumber: $("#registernumber").val(),
+            employeeid: $("#employeeid").val(),
+            country: $("#country").val(),
+            state: $("#state").val(),
+            city: $("#city").val(),
+            street: $("#street").val(),
+            unit: $("#unit").val(),
+            zipcode: $("#zipcode").val(),
+            passwordconfirm: $("#password-box2").val()
+          },
+          dataType: "json",
+          success: function(res){
+            console.log(res);
+            // window.location.href = 'register';
+            window.location.href='about.html';
+            // if(res.outputData[0] == "false"){
+            //   console.log("1");
+            //   window.location.href = "register.html";
+            // }
+            // else if(res.outputData[0] == "true"){
+            //   console.log("2");
+            //   window.location.href = "register-success.html";
+            // }
+          }
+        });
+        window.location.href='register-success.html';
+      }
+      </script>
+      <!-- <form action="/CustomerRegist" method="post">
+      </form> -->
     </div>
     <hr>
 

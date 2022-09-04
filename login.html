@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Berkshire+Swash&family=Sacramento&family=Syncopate:wght@700&display=swap" rel="stylesheet">
   </head>
   <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <div id="head" class="menu">
       <a class="company-name" href="homepage.html">Jas Car</a>
       <div class="m-text">
@@ -26,20 +27,38 @@
     <div class="transparent-grid"></div>
     <div class="message-grid">
       <h1 class="welcome-text">sign in</h1>
-      <form action="/login.html" method="post">
-        <div class="input-grid">
-          <p class="inputbox">User Name*</p>
-          <input class="input" type="text" name="username" value="">
-          <!-- <input id="employeeid" class="input" type="text" name="employeeid" value=""> -->
-        </div>
-        <div class="input-grid">
-          <p class="inputbox">Password*</p>
-          <input id="password-box" class="input" type="text" name="password" value="">
-          <!-- <input id="password" class="input" type="text" name="password" value=""> -->
-        </div>
-        <button type="submit" name="button" onclick="window.location.href = 'rent.html'"><span>c o n t i n u e</span></button>
-        <!-- <button id="register" type="submit" name="button" onclick="window.location.href='register-success.html'"><span>l o g i n</span></button> -->
-      </form>
+      <div class="input-grid">
+        <p class="inputbox">User Name*</p>
+        <input class="input" id="username" type="text" name="username" value="">
+        <!-- <input id="employeeid" class="input" type="text" name="employeeid" value=""> -->
+      </div>
+      <div class="input-grid">
+        <p class="inputbox">Password*</p>
+        <input class="input" id="password-box" type="text" name="password" value="">
+        <!-- <input id="password" class="input" type="text" name="password" value=""> -->
+      </div>
+      <button type="submit" name="button" onclick="myLogin()"><span>c o n t i n u e</span></button>
+      <script type="text/javascript">
+        function myLogin(){
+          $.ajax({
+            type: 'POST',
+            url: '/customerlogin',
+            // async: false,
+            data: {
+              username: $("#username").val(),
+              password: $("#password-box").val()
+            },
+            dataType: "json",
+            success: function(res){
+              console.log(res);
+            }
+          });
+          window.location.href='rent.html';
+          window.sessionStorage.setItem('username', $("#username").val());
+        }
+      </script>
+      <!-- <form action="/customerlogin" method="post">
+      </form> -->
       <div class="register-div">
         <p class="register-text">New to JasCar?</p>
         <a class="register-link" href="register.html">Sign up</a>
