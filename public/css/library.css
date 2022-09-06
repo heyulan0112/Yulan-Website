@@ -52,6 +52,22 @@ h1{
   text-shadow: 5px 5px 15px white;
 }
 
+.link{
+  display: block;
+  font-size: 18px;
+  margin-top: 10px;
+  color: #BBBFCA;
+  transition: 0.5s;
+  text-decoration: none;
+}
+
+.link:hover{
+  font-size: 20px;
+  color: #E7F6F2;
+  margin-top: 8px;
+}
+
+
 .video-box{
   display: inline-block;
   margin-left: 80px;

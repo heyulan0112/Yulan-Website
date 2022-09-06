@@ -34,6 +34,11 @@ app.get("/library.html", function(req,res){
   res.sendFile(__dirname + "/library.html");
 });
 
+//AHP Display page
+app.get("/ahp.html",function(req,res){
+  res.sendFile(__dirname + "/ahp.html");
+});
+
 // let connectInfo = mysql.createConnection({
 //   host:'localhost',
 //   port: 3306,
