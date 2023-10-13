@@ -39,6 +39,16 @@ app.get("/ahp.html",function(req,res){
   res.sendFile(__dirname + "/ahp.html");
 });
 
+//Gundam Drone Game Display page
+app.get("/dronegame.html",function(req,res){
+  res.sendFile(__dirname + "/dronegame.html");
+});
+
+//Basket Case Game Display page
+app.get("/basketcase.html",function(req,res){
+  res.sendFile(__dirname + "/basketcase.html");
+});
+
 // let connectInfo = mysql.createConnection({
 //   host:'localhost',
 //   port: 3306,
